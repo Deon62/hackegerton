@@ -313,3 +313,74 @@ faqQuestions.forEach(question => {
         }
     });
 });
+
+// Statistics Counter Animation
+function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16); // 60fps
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = Math.floor(target).toLocaleString();
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current).toLocaleString();
+        }
+    }, 16);
+}
+
+// Fetch and display statistics
+function loadStatistics() {
+    const accountsElement = document.getElementById('accountsCount');
+    const teamsElement = document.getElementById('teamsCount');
+    
+    if (!accountsElement || !teamsElement) return;
+    
+    // Check if statistics are in localStorage (for demo purposes)
+    // In production, this would fetch from an API endpoint
+    let accountsCount = parseInt(localStorage.getItem('hackegerton_accounts') || '0');
+    let teamsCount = parseInt(localStorage.getItem('hackegerton_teams') || '0');
+    
+    // If no data in localStorage, use default demo values
+    if (accountsCount === 0 && teamsCount === 0) {
+        accountsCount = 127; // Demo value
+        teamsCount = 42; // Demo value
+        localStorage.setItem('hackegerton_accounts', accountsCount);
+        localStorage.setItem('hackegerton_teams', teamsCount);
+    }
+    
+    // Animate counters when section is visible
+    const statsSection = accountsElement.closest('section');
+    if (!statsSection) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(accountsElement, accountsCount);
+                animateCounter(teamsElement, teamsCount);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    observer.observe(statsSection);
+    
+    // Function to update statistics (can be called from registration/login pages)
+    window.updateStatistics = function(accounts, teams) {
+        if (accounts !== undefined) {
+            localStorage.setItem('hackegerton_accounts', accounts);
+            accountsElement.textContent = accounts.toLocaleString();
+        }
+        if (teams !== undefined) {
+            localStorage.setItem('hackegerton_teams', teams);
+            teamsElement.textContent = teams.toLocaleString();
+        }
+    };
+}
+
+// Load statistics on page load
+document.addEventListener('DOMContentLoaded', () => {
+    loadStatistics();
+});

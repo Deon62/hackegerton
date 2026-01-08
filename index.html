@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hackegerton - University hackathon starting January 12 online, culminating in an in-person meet on February 28.">
+    <meta name="keywords" content="hackegerton, hackathon, university hackathon, coding competition">
+    <meta name="author" content="hackegerton">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hackegerton.com/">
+    <meta property="og:title" content="Hackegerton - University Hackathon">
+    <meta property="og:description" content="Hackegerton - University hackathon starting January 12 online, culminating in an in-person meet on February 28.">
+    <meta property="og:image" content="https://hackegerton.com/assets/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hackegerton.com/">
+    <meta property="twitter:title" content="Hackegerton - University Hackathon">
+    <meta property="twitter:description" content="Hackegerton - University hackathon starting January 12 online, culminating in an in-person meet on February 28.">
+    <meta property="twitter:image" content="https://hackegerton.com/assets/logo.png">
+    
+    <title>Hackegerton - University Hackathon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/landing.jpg" fetchpriority="high">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://hackegerton.com/">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "hackegerton",
+      "url": "https://hackegerton.com",
+      "logo": "https://hackegerton.com/assets/logo.png",
+      "description": "Hackegerton - University hackathon starting January 12 online, culminating in an in-person meet on February 28.",
+      "sameAs": [
+        "https://twitter.com/hackegerton",
+        "https://instagram.com/hackegerton"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="logo-icon">
+                    <span class="logo-circle"></span>
+                    <span class="logo-square"></span>
+                </div>
+                <a href="index.html" class="logo-text">hackegerton</a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li><a href="register.html" class="nav-link">Register</a></li>
+                <li><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                <li><a href="prizes.html" class="nav-link">Prizes</a></li>
+            </ul>
+            <a href="register.html" class="btn-contact">Register Now</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="assets/landing.jpg" alt="Hero background" class="hero-image" loading="eager" fetchpriority="high" decoding="async">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Welcome to Hackegerton<br>2026</h1>
+                    <p class="hero-subtitle">Join us starting January 12 online, culminating in an in-person meet on February 28.<br>Build innovative solutions, network with peers, and compete for prizes.</p>
+                    <div class="hero-buttons">
+                        <a href="register.html" class="btn btn-primary">Register Now</a>
+                        <a href="schedule.html" class="btn btn-secondary">View Schedule</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Join Hackegerton?</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-color="blue">
+                        <div class="feature-number">01</div>
+                        <h3 class="feature-title">AI Innovation Track</h3>
+                        <p class="feature-description">Build any project leveraging AI technologies. From machine learning models to intelligent applications, unleash your creativity and solve real-world problems with artificial intelligence.</p>
+                    </div>
+                    
+                    <div class="feature-card" data-color="green">
+                        <div class="feature-number">02</div>
+                        <h3 class="feature-title">Blockchain Track</h3>
+                        <p class="feature-description">Explore the future of decentralized technology. Build blockchain projects, smart contracts, DeFi applications, NFTs, or any innovative solution using blockchain technology.</p>
+                    </div>
+                    
+                    <div class="feature-card" data-color="orange">
+                        <div class="feature-number">03</div>
+                        <h3 class="feature-title">Complete Freedom</h3>
+                        <p class="feature-description">No restrictions on your project ideas. Build anything you're passionate about - web apps, mobile apps, hardware projects, or anything innovative that solves a problem.</p>
+                    </div>
+                    
+                    <div class="feature-card" data-color="red">
+                        <div class="feature-number">04</div>
+                        <h3 class="feature-title">Learn & Grow</h3>
+                        <p class="feature-description">Access workshops, mentorship sessions, and resources to enhance your skills. Learn from industry experts and fellow participants throughout the hackathon.</p>
+                    </div>
+                    
+                    <div class="feature-card" data-color="purple">
+                        <div class="feature-number">05</div>
+                        <h3 class="feature-title">Network & Connect</h3>
+                        <p class="feature-description">Connect with like-minded students, industry professionals, and potential collaborators. Build lasting relationships and expand your professional network.</p>
+                    </div>
+                    
+                    <div class="feature-card" data-color="pink">
+                        <div class="feature-number">06</div>
+                        <h3 class="feature-title">Compete for Prizes</h3>
+                        <p class="feature-description">Showcase your project and compete for exciting prizes. Get recognition for your innovation and potentially launch your project into the real world.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracks -->
+        <section class="safety-trust">
+            <div class="container">
+                <h2 class="section-title">Tracks</h2>
+                <div class="trust-grid">
+                    <div class="trust-item" style="background: #667eea; min-height: 220px; padding: 2.5rem;">
+                        <h3 class="trust-title">AI & Data</h3>
+                        <p class="trust-description">Build innovative solutions leveraging artificial intelligence and data science. Create machine learning models, data analytics platforms, intelligent automation, and AI-powered applications.</p>
+                    </div>
+                    <div class="trust-item" style="background: #f5576c; min-height: 220px; padding: 2.5rem;">
+                        <h3 class="trust-title">Web / Mobile</h3>
+                        <p class="trust-description">Develop cutting-edge web and mobile applications. Build responsive websites, progressive web apps, native mobile apps, or cross-platform solutions that deliver exceptional user experiences.</p>
+                    </div>
+                    <div class="trust-item" style="background: #4facfe; min-height: 220px; padding: 2.5rem;">
+                        <h3 class="trust-title">FinTech / Blockchain</h3>
+                        <p class="trust-description">Create financial technology solutions and blockchain innovations. Develop payment systems, smart contracts, DeFi platforms, cryptocurrency tools, or any fintech application.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Track Details -->
+        <section class="features" style="padding: 5rem 0;">
+            <div class="container">
+                <!-- AI & Data Track Details -->
+                <div style="max-width: 1000px; margin: 0 auto 4rem;">
+                    <h2 style="font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 400; color: #667eea; margin-bottom: 1.5rem; text-align: center;">AI & Data Track</h2>
+                    <p style="font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 300; color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; text-align: center;">
+                        Dive deep into the world of artificial intelligence and data science. This track focuses on building intelligent systems that can learn, adapt, and make data-driven decisions. Whether you're working with machine learning models, neural networks, or data analytics, this track empowers you to create solutions that understand patterns, predict outcomes, and automate complex processes.
+                    </p>
+                    <div style="background: #ffffff; padding: 2rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);">
+                        <h3 style="font-family: 'Nunito', sans-serif; font-size: 1.25rem; font-weight: 400; color: var(--text-primary); margin-bottom: 1rem;">Sample Projects You Can Build:</h3>
+                        <ul style="font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 300; color: var(--text-secondary); line-height: 2; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">•</span>
+                                <strong style="color: var(--text-primary);">Predictive Analytics Platform:</strong> Build a system that predicts trends, customer behavior, or market movements using historical data
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">•</span>
+                                <strong style="color: var(--text-primary);">AI Chatbot Assistant:</strong> Create an intelligent chatbot that can answer questions, provide support, or assist users in various tasks
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">•</span>
+                                <strong style="color: var(--text-primary);">Image Recognition System:</strong> Develop a model that can identify objects, faces, or patterns in images
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">•</span>
+                                <strong style="color: var(--text-primary);">Recommendation Engine:</strong> Build a system that suggests products, content, or services based on user preferences
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #667eea;">•</span>
+                                <strong style="color: var(--text-primary);">Data Visualization Dashboard:</strong> Create interactive dashboards that transform complex data into meaningful insights
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Web / Mobile Track Details -->
+                <div style="max-width: 1000px; margin: 0 auto 4rem;">
+                    <h2 style="font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 400; color: #f5576c; margin-bottom: 1.5rem; text-align: center;">Web / Mobile Track</h2>
+                    <p style="font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 300; color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; text-align: center;">
+                        Create beautiful, functional, and user-friendly applications for web and mobile platforms. This track covers everything from responsive web design to native mobile apps, focusing on creating seamless user experiences across all devices. Whether you're building a progressive web app, a React Native application, or a full-stack web solution, this track helps you bring your ideas to life on screens of all sizes.
+                    </p>
+                    <div style="background: #ffffff; padding: 2rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);">
+                        <h3 style="font-family: 'Nunito', sans-serif; font-size: 1.25rem; font-weight: 400; color: var(--text-primary); margin-bottom: 1rem;">Sample Projects You Can Build:</h3>
+                        <ul style="font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 300; color: var(--text-secondary); line-height: 2; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #f5576c;">•</span>
+                                <strong style="color: var(--text-primary);">E-Commerce Platform:</strong> Build a full-featured online store with shopping cart, payment integration, and order management
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #f5576c;">•</span>
+                                <strong style="color: var(--text-primary);">Social Media App:</strong> Create a mobile or web app for connecting users, sharing content, and building communities
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #f5576c;">•</span>
+                                <strong style="color: var(--text-primary);">Task Management Tool:</strong> Develop a productivity app for organizing tasks, projects, and team collaboration
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #f5576c;">•</span>
+                                <strong style="color: var(--text-primary);">Fitness Tracking App:</strong> Build an app that tracks workouts, nutrition, and health metrics with beautiful visualizations
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #f5576c;">•</span>
+                                <strong style="color: var(--text-primary);">Real-Time Chat Application:</strong> Create a messaging platform with instant communication, file sharing, and notifications
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FinTech / Blockchain Track Details -->
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <h2 style="font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 400; color: #4facfe; margin-bottom: 1.5rem; text-align: center;">FinTech / Blockchain Track</h2>
+                    <p style="font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 300; color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; text-align: center;">
+                        Explore the future of finance and decentralized technology. This track combines financial innovation with blockchain technology, enabling you to build secure, transparent, and efficient financial solutions. From payment systems and digital wallets to smart contracts and DeFi platforms, this track empowers you to revolutionize how money moves and how financial services are delivered.
+                    </p>
+                    <div style="background: #ffffff; padding: 2rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);">
+                        <h3 style="font-family: 'Nunito', sans-serif; font-size: 1.25rem; font-weight: 400; color: var(--text-primary); margin-bottom: 1rem;">Sample Projects You Can Build:</h3>
+                        <ul style="font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 300; color: var(--text-secondary); line-height: 2; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #4facfe;">•</span>
+                                <strong style="color: var(--text-primary);">Digital Wallet Application:</strong> Build a secure mobile wallet for storing, sending, and receiving digital currencies
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #4facfe;">•</span>
+                                <strong style="color: var(--text-primary);">Smart Contract Platform:</strong> Create automated contracts that execute transactions when conditions are met, without intermediaries
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #4facfe;">•</span>
+                                <strong style="color: var(--text-primary);">Peer-to-Peer Payment System:</strong> Develop a platform for direct money transfers between users with low fees
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #4facfe;">•</span>
+                                <strong style="color: var(--text-primary);">NFT Marketplace:</strong> Build a platform for creating, buying, and selling non-fungible tokens
+                            </li>
+                            <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #4facfe;">•</span>
+                                <strong style="color: var(--text-primary);">Cryptocurrency Exchange:</strong> Create a trading platform for buying, selling, and exchanging digital assets
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Snapshot -->
+        <section class="become-host" style="background: #ffffff; background-image: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.8) 70%, rgba(255, 255, 255, 1) 100%), repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(0, 0, 0, 0.1) 24px, rgba(0, 0, 0, 0.1) 25px), repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(0, 0, 0, 0.1) 24px, rgba(0, 0, 0, 0.1) 25px); background-size: 100% 100%, 25px 25px, 25px 25px;">
+            <div class="container">
+                <h2 class="section-title">Schedule Snapshot</h2>
+                <div class="schedule-cards-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3rem; max-width: 1200px; margin-left: auto; margin-right: auto;">
+                    <div class="schedule-card" style="background: #ffffff; padding: 1.25rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; align-items: center; gap: 1.5rem; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.08)'">
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 0.75rem;">
+                            <div style="font-family: 'Nunito', sans-serif; font-size: 0.7rem; font-weight: 300; color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px;">Day</div>
+                            <h3 style="font-family: 'Nunito', sans-serif; font-size: 1.5rem; font-weight: 300; color: var(--text-primary); margin: 0; line-height: 1.2;">January 12</h3>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">Registration Starts & Building Begins</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                                        <path d="M12 6v6l4 2"></path>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">TBD</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">Online</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card" style="background: #ffffff; padding: 1.25rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; align-items: center; gap: 1.5rem; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.08)'">
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <div style="font-family: 'Nunito', sans-serif; font-size: 0.7rem; font-weight: 300; color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px;">Day</div>
+                            <h3 style="font-family: 'Nunito', sans-serif; font-size: 1.5rem; font-weight: 300; color: var(--text-primary); margin: 0; line-height: 1.2;">February 6</h3>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">Mini In-Person Hackathon</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                                        <path d="M12 6v6l4 2"></path>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">TBD</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">TBD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card" style="background: #ffffff; padding: 1.25rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; align-items: center; gap: 1.5rem; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.08)'">
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <div style="font-family: 'Nunito', sans-serif; font-size: 0.7rem; font-weight: 300; color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px;">Day</div>
+                            <h3 style="font-family: 'Nunito', sans-serif; font-size: 1.5rem; font-weight: 300; color: var(--text-primary); margin: 0; line-height: 1.2;">February 27</h3>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">Project Presentations</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                                        <path d="M12 6v6l4 2"></path>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">TBD</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">TBD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-card" style="background: #ffffff; padding: 1.25rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; align-items: center; gap: 1.5rem; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.08)'">
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <div style="font-family: 'Nunito', sans-serif; font-size: 0.7rem; font-weight: 300; color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px;">Day</div>
+                            <h3 style="font-family: 'Nunito', sans-serif; font-size: 1.5rem; font-weight: 300; color: var(--text-primary); margin: 0; line-height: 1.2;">February 28</h3>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">Grand Hackathon & Prizing</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                                        <path d="M12 6v6l4 2"></path>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">TBD</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-secondary); flex-shrink: 0;">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary);">TBD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="host-cta-container">
+                    <a href="schedule.html" class="btn btn-primary btn-large">View Full Schedule</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            When does Hackegerton start?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Hackegerton starts on January 12 online and runs until February 28, when we'll have our in-person meet. Registration opens soon - stay tuned for updates!</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I register for Hackegerton?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Click on the "Register Now" button in the navigation or visit our Register page. Fill out the registration form with your details and team information. Registration will open soon!</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What is the registration fee?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>The main hackathon requires a registration fee of 299 KSH. However, the mini hackathon on February 6th is free to attend, but spaces are limited to only 50 participants. Register early to secure your spot!</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What are the hackathon dates?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Hackegerton starts online on January 12 and runs until February 28, when we'll have our in-person meet. The online phase allows teams to work remotely, and the in-person event brings everyone together for presentations and networking.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Who can participate?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Hackegerton is open to all university students. You can participate individually or as a team. Check our Register page for more details on team formation and participation guidelines.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2 class="cta-title">Ready to Get Started?</h2>
+                <p class="cta-text">Registration for Hackegerton opens soon. Join us for an exciting hackathon experience!</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-primary btn-large">
+                        Register Now
+                    </a>
+                    <a href="schedule.html" class="btn btn-secondary btn-large">
+                        View Schedule
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-icons">
+                    <a href="https://twitter.com/hackegerton" class="footer-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/hackegerton" class="footer-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="mailto:info@hackegerton.com" class="footer-icon" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hackegerton</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

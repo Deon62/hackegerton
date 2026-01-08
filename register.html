@@ -43,7 +43,7 @@
                 <li><a href="prizes.html" class="nav-link">Prizes</a></li>
             </ul>
             <a href="register.html" class="btn-contact">Register Now</a>
-            <button class="profile-btn" id="profileBtn" aria-label="Account Profile" onclick="window.location.href='login.html'">
+            <button class="profile-btn" id="profileBtn" aria-label="Account Profile">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
@@ -204,26 +204,53 @@
                         </div>
                     </div>
 
-                    <div class="host-download-section">
-                        <h2>Ready to Register?</h2>
-                        <p>Registration opens on January 12. Fill out the form below to secure your spot in Hackegerton. Don't miss out on this exciting opportunity!</p>
-                        <div class="host-download-buttons">
-                            <a href="#" class="btn btn-primary btn-large">
-                                Register Now
-                            </a>
-                            <a href="schedule.html" class="btn btn-secondary btn-large">
-                                View Schedule
-                            </a>
-                        </div>
-                        <div class="host-contact-info">
-                            <p>Questions about registration? Contact us at <a href="mailto:info@hackegerton.com">info@hackegerton.com</a></p>
-                        </div>
+                    <div class="host-section-block" style="max-width: 500px; margin: 0 auto;">
+                        <h2>Create Account</h2>
+                        <p class="host-section-intro">Register for Hackegerton by creating your account. Fill out the form below to get started.</p>
+                        
+                        <form id="registerForm" style="background: #ffffff; padding: 2.5rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); margin-top: 2rem;">
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="nickname" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Nickname</label>
+                                <input type="text" id="nickname" name="nickname" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="email" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Email</label>
+                                <input type="email" id="email" name="email" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="password" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Password</label>
+                                <input type="password" id="password" name="password" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                            </div>
+                            
+                            <div id="registerMessage" style="margin-bottom: 1.5rem; display: none; padding: 0.875rem; border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 0.9rem;"></div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.875rem; font-size: 1rem;">Register</button>
+                            
+                            <p style="text-align: center; margin-top: 1.5rem; font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-secondary);">
+                                Already have an account? <a href="login.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Login here</a>
+                            </p>
+                        </form>
                     </div>
 
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Account Modal -->
+    <div class="account-modal" id="accountModal">
+        <div class="account-modal-content">
+            <div class="account-modal-header">
+                <h3 id="modalTitle">Account</h3>
+                <button class="account-modal-close" id="modalClose">&times;</button>
+            </div>
+            <div id="modalContent">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -247,5 +274,57 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Registration form handling
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nickname = document.getElementById('nickname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('registerMessage');
+            
+            // Get users from localStorage
+            const users = JSON.parse(localStorage.getItem('hackegerton_users') || '[]');
+            
+            // Check if email already exists
+            const emailExists = users.some(u => u.email === email);
+            
+            if (emailExists) {
+                messageDiv.style.display = 'block';
+                messageDiv.style.background = '#fee2e2';
+                messageDiv.style.color = '#991b1b';
+                messageDiv.textContent = 'An account with this email already exists. Please login instead.';
+                return;
+            }
+            
+            // Add new user
+            users.push({ nickname, email, password });
+            localStorage.setItem('hackegerton_users', JSON.stringify(users));
+            
+            // Update statistics
+            const accountsCount = parseInt(localStorage.getItem('hackegerton_accounts') || '0') + 1;
+            localStorage.setItem('hackegerton_accounts', accountsCount);
+            if (typeof updateStatistics === 'function') {
+                updateStatistics(accountsCount, null);
+            }
+            
+            // Auto-login after registration
+            localStorage.setItem('hackegerton_user', JSON.stringify({
+                nickname: nickname,
+                email: email
+            }));
+            
+            messageDiv.style.display = 'block';
+            messageDiv.style.background = '#d1fae5';
+            messageDiv.style.color = '#065f46';
+            messageDiv.textContent = 'Registration successful! Redirecting...';
+            
+            // Redirect to home page
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        });
+    </script>
 </body>
 </html>

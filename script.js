@@ -383,4 +383,100 @@ function loadStatistics() {
 // Load statistics on page load
 document.addEventListener('DOMContentLoaded', () => {
     loadStatistics();
+    initAccountModal();
 });
+
+// Account Modal and Authentication
+function initAccountModal() {
+    const profileBtn = document.getElementById('profileBtn');
+    const accountModal = document.getElementById('accountModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalContent = document.getElementById('modalContent');
+    const modalTitle = document.getElementById('modalTitle');
+    
+    if (!profileBtn || !accountModal) return;
+    
+    // Check if user is logged in
+    function isLoggedIn() {
+        return localStorage.getItem('hackegerton_user') !== null;
+    }
+    
+    function getUser() {
+        const userStr = localStorage.getItem('hackegerton_user');
+        return userStr ? JSON.parse(userStr) : null;
+    }
+    
+    function updateModalContent() {
+        if (isLoggedIn()) {
+            const user = getUser();
+            modalTitle.textContent = 'Account';
+            modalContent.innerHTML = `
+                <div class="account-user-info">
+                    <p class="user-name">${user.nickname || user.email}</p>
+                    <p>${user.email}</p>
+                </div>
+                <div class="account-modal-buttons">
+                    <button class="account-modal-btn account-modal-btn-danger" onclick="handleLogout()">Logout</button>
+                </div>
+            `;
+        } else {
+            modalTitle.textContent = 'Account';
+            modalContent.innerHTML = `
+                <div class="account-modal-buttons">
+                    <a href="login.html" class="account-modal-btn account-modal-btn-primary">Login</a>
+                    <a href="register.html" class="account-modal-btn account-modal-btn-secondary">Register</a>
+                </div>
+            `;
+        }
+    }
+    
+    // Open modal
+    profileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateModalContent();
+        accountModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Close modal
+    function closeModal() {
+        accountModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+    
+    // Close on backdrop click
+    accountModal.addEventListener('click', (e) => {
+        if (e.target === accountModal) {
+            closeModal();
+        }
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && accountModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    // Update modal when page loads
+    updateModalContent();
+}
+
+// Logout function
+function handleLogout() {
+    localStorage.removeItem('hackegerton_user');
+    const accountModal = document.getElementById('accountModal');
+    if (accountModal) {
+        accountModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    // Reload page to update UI
+    window.location.reload();
+}
+
+// Make logout function globally available
+window.handleLogout = handleLogout;

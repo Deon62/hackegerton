@@ -306,6 +306,38 @@ body {
     color: rgba(30, 41, 59, 1);
 }
 
+.profile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: var(--transition);
+    flex-shrink: 0;
+    margin-left: 0.75rem;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-btn svg {
+    width: 20px;
+    height: 20px;
+    color: var(--text-primary);
+    stroke: currentColor;
+    fill: none;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -2380,6 +2412,18 @@ body {
         order: 2;
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
+    }
+
+    .profile-btn {
+        order: 2.5;
+        width: 36px;
+        height: 36px;
+        margin-left: 0.5rem;
+    }
+
+    .profile-btn svg {
+        width: 18px;
+        height: 18px;
     }
 
     .nav-toggle {

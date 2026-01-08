@@ -217,12 +217,21 @@ body {
 }
 
 .logo-text {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     text-decoration: none;
     transition: var(--transition);
     white-space: nowrap;
+    letter-spacing: -0.5px;
+    text-transform: lowercase;
+    position: relative;
+}
+
+.logo-text:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
 }
 
 .nav-menu {

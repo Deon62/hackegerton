@@ -43,6 +43,18 @@
     {
       "source": "/terms",
       "destination": "/terms.html"
+    },
+    {
+      "source": "/program-feb6",
+      "destination": "/program-feb6.html"
+    },
+    {
+      "source": "/program-feb27",
+      "destination": "/program-feb27.html"
+    },
+    {
+      "source": "/program-feb28",
+      "destination": "/program-feb28.html"
     }
   ]
 }

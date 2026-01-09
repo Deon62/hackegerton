@@ -561,6 +561,9 @@ function handleLogout() {
     if (typeof updateHeroCTAs === 'function') {
         updateHeroCTAs();
     }
+    if (typeof updateScheduleCTA === 'function') {
+        updateScheduleCTA();
+    }
     // Reload page to update UI
     window.location.reload();
 }
@@ -700,9 +703,35 @@ function updateHeroCTAs() {
 // Make updateHeroCTAs globally available
 window.updateHeroCTAs = updateHeroCTAs;
 
+function updateScheduleCTA() {
+    function getUser() {
+        const userStr = localStorage.getItem('hackegerton_user');
+        return userStr ? JSON.parse(userStr) : null;
+    }
+    
+    const user = getUser();
+    const scheduleRegisterBtn = document.getElementById('scheduleRegisterBtn');
+    
+    if (scheduleRegisterBtn) {
+        if (user) {
+            // User is logged in - change to Check In
+            scheduleRegisterBtn.textContent = 'Check In';
+            scheduleRegisterBtn.href = 'checkin.html';
+        } else {
+            // User is logged out - show Register Now
+            scheduleRegisterBtn.textContent = 'Register Now';
+            scheduleRegisterBtn.href = 'register.html';
+        }
+    }
+}
+
+// Make updateScheduleCTA globally available
+window.updateScheduleCTA = updateScheduleCTA;
+
 // Update profile button and nav account button on page load if user is logged in
 document.addEventListener('DOMContentLoaded', () => {
     updateProfileButton();
     updateNavAccountButton();
     updateHeroCTAs();
+    updateScheduleCTA();
 });

@@ -221,11 +221,19 @@
         </section>
 
         <!-- Side Quest Event -->
-        <section class="features" style="padding: 5rem 0;">
-            <div class="container">
-                <h2 class="section-title" style="font-family: 'Nunito', sans-serif; font-weight: 300;">Side Quest Event</h2>
+        <section class="features" style="padding: 5rem 0; position: relative; overflow: hidden;">
+            <!-- Cute nature-themed paint pour effect -->
+            <div style="position: absolute; top: -60px; left: -120px; width: 450px; height: 550px; background: #10b981; border-radius: 50% 40% 60% 30%; transform: rotate(-20deg); opacity: 0.25; z-index: 0;"></div>
+            <div style="position: absolute; top: 120px; right: -180px; width: 550px; height: 450px; background: #f59e0b; border-radius: 45% 55% 35% 65%; transform: rotate(40deg); opacity: 0.2; z-index: 0;"></div>
+            <div style="position: absolute; bottom: -100px; left: 15%; width: 400px; height: 500px; background: #84cc16; border-radius: 60% 30% 50% 40%; transform: rotate(20deg); opacity: 0.25; z-index: 0;"></div>
+            <div style="position: absolute; top: 250px; left: 55%; width: 350px; height: 400px; background: #22c55e; border-radius: 40% 60% 30% 70%; transform: rotate(-50deg); opacity: 0.2; z-index: 0;"></div>
+            <div style="position: absolute; bottom: 80px; right: 8%; width: 450px; height: 350px; background: #eab308; border-radius: 50% 30% 60% 40%; transform: rotate(55deg); opacity: 0.22; z-index: 0;"></div>
+            <div style="position: absolute; top: 50px; right: 30%; width: 300px; height: 380px; background: #86efac; border-radius: 35% 65% 45% 55%; transform: rotate(-30deg); opacity: 0.18; z-index: 0;"></div>
+            
+            <div class="container" style="position: relative; z-index: 1;">
+                <h2 class="section-title" style="font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2rem; text-align: center; letter-spacing: -0.5px;">Side Quest Event</h2>
                 <div style="max-width: 1000px; margin: 0 auto;">
-                    <div style="background: #ffffff; padding: 2.5rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); margin-bottom: 2rem;">
+                    <div style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 1rem; border: 2px solid rgba(255, 255, 255, 0.5); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); margin-bottom: 2rem;">
                         <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
                             <div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem; min-width: 300px;">
                                 <div>
@@ -271,7 +279,7 @@
             <div class="container">
                 <h2>Ready to Join?</h2>
                 <p>Register now to secure your spot in Hackegerton. Main hackathon registration fee is 299 KSH.</p>
-                <a href="register.html" class="btn btn-primary btn-large">
+                <a href="register.html" class="btn btn-primary btn-large" id="scheduleRegisterBtn">
                     Register Now
                 </a>
             </div>

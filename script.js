@@ -592,14 +592,9 @@ function updateProfileButton() {
     
     const user = getUser();
     
-    // Update mobile visibility based on login status
-    if (user) {
-        profileBtn.classList.remove('mobile-hidden');
-        profileBtn.classList.add('mobile-visible');
-    } else {
-        profileBtn.classList.add('mobile-hidden');
-        profileBtn.classList.remove('mobile-visible');
-    }
+    // Always show profile button on mobile (for easy access to login/register)
+    profileBtn.classList.remove('mobile-hidden');
+    profileBtn.classList.add('mobile-visible');
     
     if (user && user.avatar_url) {
         // Remove existing content
@@ -664,10 +659,10 @@ function updateNavAccountButton() {
             navAccountBtn.classList.remove('mobile-hidden');
             navAccountBtn.classList.remove('mobile-visible');
         }
-        // Hide profile button on mobile when logged out
+        // Always show profile button on mobile (for easy access to login/register)
         if (profileBtn) {
-            profileBtn.classList.add('mobile-hidden');
-            profileBtn.classList.remove('mobile-visible');
+            profileBtn.classList.remove('mobile-hidden');
+            profileBtn.classList.add('mobile-visible');
         }
     }
 }

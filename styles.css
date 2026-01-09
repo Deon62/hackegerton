@@ -2716,7 +2716,11 @@ body {
     }
 
     .hero-content {
-        padding: 6rem 0 2rem 0;
+        padding: 6rem 0 4rem 0; /* Increased bottom padding to push content down */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: calc(100vh - 100px); /* Make content fill viewport */
     }
 
     .hero-title {
@@ -2744,7 +2748,24 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .hero-buttons,
+    .hero-buttons {
+        flex-direction: column;
+        width: auto; /* Don't span full width */
+        max-width: 280px; /* Limit button width */
+        margin-top: auto; /* Push to bottom */
+        margin-bottom: 2rem; /* Space from bottom */
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .hero-buttons .btn {
+        width: auto; /* Don't make buttons full width */
+        min-width: 200px; /* Minimum width for buttons */
+        max-width: 280px; /* Maximum width */
+        padding: 0.75rem 1.5rem; /* Slightly smaller padding */
+        font-size: 0.95rem; /* Slightly smaller font */
+    }
+
     .cta-buttons {
         flex-direction: column;
         width: 100%;
@@ -3206,7 +3227,11 @@ body {
     }
 
     .hero-content {
-        padding: 5rem 0 2rem 0;
+        padding: 5rem 0 4rem 0; /* Increased bottom padding */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: calc(100vh - 80px);
     }
 
     .hero-title {

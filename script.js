@@ -474,6 +474,9 @@ function initAccountModal() {
     if (typeof updateProfileButton === 'function') {
         updateProfileButton();
     }
+    if (typeof updateNavAccountButton === 'function') {
+        updateNavAccountButton();
+    }
 }
 
 // Logout function
@@ -483,6 +486,13 @@ function handleLogout() {
     if (accountModal) {
         accountModal.classList.remove('active');
         document.body.style.overflow = '';
+    }
+    // Update UI
+    if (typeof updateProfileButton === 'function') {
+        updateProfileButton();
+    }
+    if (typeof updateNavAccountButton === 'function') {
+        updateNavAccountButton();
     }
     // Reload page to update UI
     window.location.reload();
@@ -526,7 +536,37 @@ function updateProfileButton() {
 // Make updateProfileButton globally available
 window.updateProfileButton = updateProfileButton;
 
-// Update profile button on page load if user is logged in
+// Update navbar account button
+function updateNavAccountButton() {
+    const navAccountBtn = document.getElementById('navAccountBtn');
+    if (!navAccountBtn) return;
+    
+    function getUser() {
+        const userStr = localStorage.getItem('hackegerton_user');
+        return userStr ? JSON.parse(userStr) : null;
+    }
+    
+    const user = getUser();
+    if (user && user.nickname) {
+        navAccountBtn.textContent = `Hello, ${user.nickname}`;
+        navAccountBtn.href = '#';
+        navAccountBtn.onclick = function(e) {
+            e.preventDefault();
+            const profileBtn = document.getElementById('profileBtn');
+            if (profileBtn) profileBtn.click();
+        };
+    } else {
+        navAccountBtn.textContent = 'Create Account';
+        navAccountBtn.href = 'register.html';
+        navAccountBtn.onclick = null;
+    }
+}
+
+// Make updateNavAccountButton globally available
+window.updateNavAccountButton = updateNavAccountButton;
+
+// Update profile button and nav account button on page load if user is logged in
 document.addEventListener('DOMContentLoaded', () => {
     updateProfileButton();
+    updateNavAccountButton();
 });

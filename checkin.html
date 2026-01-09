@@ -43,7 +43,7 @@
         <section class="host-page-hero">
             <div class="container">
                 <h1 class="host-page-title">Hackegerton Check In</h1>
-                <p class="host-page-subtitle">Register for the hackathon. Choose your track and complete your registration.</p>
+                <p class="host-page-subtitle">Submit your team for the hackathon. Choose your track, add team members, and complete your registration.</p>
             </div>
         </section>
 
@@ -59,9 +59,43 @@
                         </div>
                     </div>
 
+                    <!-- Payment Information Section -->
+                    <div id="paymentSection" style="display: none; max-width: 600px; margin: 0 auto; margin-bottom: 2rem;">
+                        <div style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); padding: 2.5rem; border-radius: 1rem; border: 2px solid rgba(37, 99, 235, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+                            <div style="text-align: center; margin-bottom: 1.5rem;">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">💳</div>
+                                <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Payment Information</h2>
+                                <p style="font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Main Hackathon Registration Fee: <strong style="color: var(--primary-color);">299 KSH</strong></p>
+                            </div>
+                            
+                            <div style="background: rgba(255, 255, 255, 0.7); padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1.5rem;">
+                                <p style="font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 400; color: var(--text-primary); line-height: 1.6; margin-bottom: 1rem;">
+                                    <strong style="color: var(--primary-color);">Important:</strong> Payment for the hackathon will be processed by the <strong>main EUCOSSA website</strong>. After completing your team submission below, you'll need to purchase your ticket through the official EUCOSSA platform.
+                                </p>
+                                
+                                <div style="background: rgba(37, 99, 235, 0.05); padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                                    <p style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 400; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                                        <strong>How to Pay:</strong><br>
+                                        1. Click the "Buy Ticket" button below<br>
+                                        2. Enter your paying number (phone number)<br>
+                                        3. You'll receive a payment prompt<br>
+                                        4. Complete the payment to finalize your registration
+                                    </p>
+                                </div>
+                                
+                                <a href="https://eucossa.egerton.ac.ke" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem; font-weight: 600; text-align: center; display: block; text-decoration: none;">
+                                    🎫 Buy Ticket
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="checkInForm" style="display: none; max-width: 600px; margin: 0 auto;">
                         <div style="background: #ffffff; padding: 2.5rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
-                            <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1.5rem;">Hackathon Registration</h2>
+                            <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Team Submission</h2>
+                            <p style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 300; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.5;">
+                                Submit your team details for Hackegerton. You can register as an individual or form a team with other participants.
+                            </p>
                             
                             <form id="checkinForm">
                                 <div style="margin-bottom: 1.5rem;">
@@ -152,13 +186,16 @@
             const user = JSON.parse(localStorage.getItem('hackegerton_user') || 'null');
             const loginRequired = document.getElementById('loginRequired');
             const checkInForm = document.getElementById('checkInForm');
+            const paymentSection = document.getElementById('paymentSection');
             
             if (!user) {
                 loginRequired.style.display = 'block';
                 checkInForm.style.display = 'none';
+                if (paymentSection) paymentSection.style.display = 'none';
             } else {
                 loginRequired.style.display = 'none';
                 checkInForm.style.display = 'block';
+                if (paymentSection) paymentSection.style.display = 'block';
                 
                 // Check if user already registered
                 checkExistingRegistration(user.id);

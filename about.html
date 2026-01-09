@@ -22,6 +22,14 @@
     <meta property="twitter:image" content="https://hackegerton.com/assets/logo.png">
     
     <title>About | HackEgerton 2026 | Student Hackathon at Egerton University</title>
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- Preconnect for critical external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload critical logo -->
+    <link rel="preload" as="image" href="assets/logo.png" fetchpriority="high">
     <link rel="stylesheet" href="styles.css">
     <link rel="canonical" href="https://hackegerton.com/about">
 </head>
@@ -30,7 +38,7 @@
         <nav class="nav">
             <div class="nav-brand">
                 <a href="/" class="logo-link">
-                    <img src="assets/logo.png" alt="Hackegerton" class="logo-img">
+                    <img src="assets/logo.png" alt="Hackegerton" class="logo-img" width="40" height="40" loading="eager" fetchpriority="high">
                     <span class="logo-text">HackEgerton</span>
                 </a>
             </div>
@@ -207,6 +215,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

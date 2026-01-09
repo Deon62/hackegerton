@@ -23,9 +23,17 @@
     
     <title>Program - Mini In-Person Hackathon | HackEgerton 2026</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- Preconnect for critical external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Optimized font loading with font-display: swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+    <!-- Preload critical logo -->
+    <link rel="preload" as="image" href="assets/logo.png" fetchpriority="high">
     <link rel="stylesheet" href="styles.css">
     <link rel="canonical" href="https://hackegerton.com/program-feb6">
 </head>
@@ -34,7 +42,7 @@
         <nav class="nav">
             <div class="nav-brand">
                 <a href="/" class="logo-link">
-                    <img src="assets/logo.png" alt="Hackegerton" class="logo-img">
+                    <img src="assets/logo.png" alt="Hackegerton" class="logo-img" width="40" height="40" loading="eager" fetchpriority="high">
                     <span class="logo-text">HackEgerton</span>
                 </a>
             </div>
@@ -251,7 +259,7 @@
         </div>
     </footer>
 
-    <script src="supabase-config.js"></script>
-    <script src="script.js"></script>
+    <script src="supabase-config.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

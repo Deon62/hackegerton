@@ -199,6 +199,36 @@ if (heroImage) {
     }
 }
 
+// Image lazy loading optimization for images without loading attribute
+const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            // Only load if src is set and not already loaded
+            if (img.dataset.src && !img.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+            }
+            // Add loaded class for fade-in effect
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+            imageObserver.unobserve(img);
+        }
+    });
+}, {
+    rootMargin: '50px'
+});
+
+// Initialize image lazy loading on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Find all images that should be lazy loaded
+    const imagesToLazyLoad = document.querySelectorAll('img[data-src]');
+    imagesToLazyLoad.forEach(img => {
+        imageObserver.observe(img);
+    });
+});
+
 // Intersection Observer for scroll animations
 const observerOptions = {
     threshold: 0.1,

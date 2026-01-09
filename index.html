@@ -25,10 +25,18 @@
     <meta property="twitter:image" content="https://hackegerton.com/assets/logo.png">
     
     <title>HackEgerton 2026 | Student Hackathon at Egerton University</title>
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- Preconnect for critical external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Optimized font loading with font-display: swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+    <!-- Preload critical images -->
     <link rel="preload" as="image" href="assets/landing.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/logo.png" fetchpriority="high">
     <link rel="stylesheet" href="styles.css">
     <link rel="canonical" href="https://hackegerton.com/">
     <link rel="icon" type="image/png" href="assets/logo.png">
@@ -54,7 +62,7 @@
         <nav class="nav">
             <div class="nav-brand">
                 <a href="/" class="logo-link">
-                    <img src="assets/logo.png" alt="Hackegerton" class="logo-img">
+                    <img src="assets/logo.png" alt="Hackegerton" class="logo-img" width="40" height="40" loading="eager" fetchpriority="high">
                     <span class="logo-text">HackEgerton</span>
                 </a>
             </div>
@@ -339,7 +347,7 @@
                             </div>
                         </div>
                         <div style="flex-shrink: 0; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; padding: 1rem;">
-                            <img src="assets/icons/registration.svg" alt="Registration Icon" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            <img src="assets/icons/registration.svg" alt="Registration Icon" width="120" height="120" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;">
                         </div>
                     </div>
                     
@@ -371,7 +379,7 @@
                             </div>
                         </div>
                         <div style="flex-shrink: 0; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; padding: 1rem;">
-                            <img src="assets/icons/minihackathon.svg" alt="Mini Hackathon Icon" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            <img src="assets/icons/minihackathon.svg" alt="Mini Hackathon Icon" width="120" height="120" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;">
                         </div>
                     </div>
                     
@@ -417,7 +425,7 @@
                             </div>
                         </div>
                         <div style="flex-shrink: 0; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; padding: 1rem;">
-                            <img src="assets/icons/presentation.svg" alt="Presentation Icon" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            <img src="assets/icons/presentation.svg" alt="Presentation Icon" width="120" height="120" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;">
                         </div>
                     </div>
                     
@@ -449,7 +457,7 @@
                             </div>
                         </div>
                         <div style="flex-shrink: 0; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; padding: 1rem;">
-                            <img src="assets/icons/gifting.svg" alt="Gifting Icon" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            <img src="assets/icons/gifting.svg" alt="Gifting Icon" width="120" height="120" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;">
                         </div>
                     </div>
                 </div>
@@ -564,7 +572,7 @@
         </div>
     </footer>
 
-    <script src="supabase-config.js"></script>
-    <script src="script.js"></script>
+    <script src="supabase-config.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

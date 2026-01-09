@@ -14,17 +14,17 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <a href="index.html" class="logo-text">Hackegerton</a>
+                <a href="/" class="logo-text">Hackegerton</a>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
-                <li><a href="checkin.html" class="nav-link">Hackegerton Check In</a></li>
-                <li><a href="sponsors.html" class="nav-link">Sponsors</a></li>
-                <li><a href="prizes.html" class="nav-link">Prizes</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+                <li><a href="/schedule" class="nav-link">Schedule</a></li>
+                <li><a href="/checkin" class="nav-link">Hackegerton Check In</a></li>
+                <li><a href="/sponsors" class="nav-link">Sponsors</a></li>
+                <li><a href="/prizes" class="nav-link">Prizes</a></li>
             </ul>
-            <a href="register.html" class="btn-contact" id="navAccountBtn">Create Account</a>
+            <a href="/register" class="btn-contact" id="navAccountBtn">Create Account</a>
             <button class="profile-btn" id="profileBtn" aria-label="Account Profile">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -67,7 +67,7 @@
                             <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.875rem; font-size: 1rem;">Login</button>
                             
                             <p style="text-align: center; margin-top: 1.5rem; font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-secondary);">
-                                Don't have an account? <a href="register.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Register here</a>
+                                Don't have an account? <a href="/register" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Register here</a>
                             </p>
                         </form>
                     </div>
@@ -167,7 +167,7 @@
                         
                         // Redirect to home page
                         setTimeout(() => {
-                            window.location.href = 'index.html';
+                            window.location.href = '/';
                         }, 1000);
                     } else {
                         throw new Error('Invalid password');

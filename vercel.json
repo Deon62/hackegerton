@@ -1,0 +1,48 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/schedule",
+      "destination": "/schedule.html"
+    },
+    {
+      "source": "/checkin",
+      "destination": "/checkin.html"
+    },
+    {
+      "source": "/sponsors",
+      "destination": "/sponsors.html"
+    },
+    {
+      "source": "/prizes",
+      "destination": "/prizes.html"
+    },
+    {
+      "source": "/register",
+      "destination": "/register.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/login.html"
+    },
+    {
+      "source": "/sponsor-form",
+      "destination": "/sponsor-form.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    }
+  ]
+}

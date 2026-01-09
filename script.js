@@ -150,12 +150,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Add active class to current page nav link
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const currentPage = window.location.pathname.split('/').pop() || '';
+// Normalize: remove .html and handle empty (home page)
+const normalizedCurrentPage = currentPage.replace('.html', '') || 'index';
 const navLinks = document.querySelectorAll('.nav-link');
 
 navLinks.forEach(link => {
     const linkHref = link.getAttribute('href');
-    if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
+    // Normalize link href: remove leading / and .html
+    const normalizedLinkHref = linkHref.replace(/^\/+/, '').replace('.html', '') || 'index';
+    // Check if link matches current page
+    const isActive = normalizedLinkHref === normalizedCurrentPage || 
+                     (normalizedCurrentPage === 'index' && (normalizedLinkHref === '' || normalizedLinkHref === 'index'));
+    if (isActive) {
         link.classList.add('active');
     } else {
         link.classList.remove('active');
@@ -486,7 +493,7 @@ function initAccountModal() {
                     </div>
                 </div>
                 <div class="account-modal-buttons">
-                    <a href="checkin.html" class="account-modal-btn account-modal-btn-primary">Hackegerton Check In</a>
+                    <a href="/checkin" class="account-modal-btn account-modal-btn-primary">Hackegerton Check In</a>
                     <button class="account-modal-btn account-modal-btn-danger" onclick="handleLogout()">Logout</button>
                 </div>
             `;
@@ -494,8 +501,8 @@ function initAccountModal() {
             modalTitle.textContent = 'Account';
             modalContent.innerHTML = `
                 <div class="account-modal-buttons">
-                    <a href="login.html" class="account-modal-btn account-modal-btn-primary">Login</a>
-                    <a href="register.html" class="account-modal-btn account-modal-btn-secondary">Create Account</a>
+                    <a href="/login" class="account-modal-btn account-modal-btn-primary">Login</a>
+                    <a href="/register" class="account-modal-btn account-modal-btn-secondary">Create Account</a>
                 </div>
             `;
         }
@@ -653,7 +660,7 @@ function updateNavAccountButton() {
         // User is logged out
         if (navAccountBtn) {
             navAccountBtn.textContent = 'Create Account';
-            navAccountBtn.href = 'register.html';
+            navAccountBtn.href = '/register';
             navAccountBtn.onclick = null;
             // Show Create Account button on mobile when logged out
             navAccountBtn.classList.remove('mobile-hidden');
@@ -685,21 +692,21 @@ function updateHeroCTAs() {
         // User is logged in - change to Check In
         if (heroRegisterBtn) {
             heroRegisterBtn.textContent = 'Check In';
-            heroRegisterBtn.href = 'checkin.html';
+            heroRegisterBtn.href = '/checkin';
         }
         if (ctaRegisterBtn) {
             ctaRegisterBtn.textContent = 'Check In';
-            ctaRegisterBtn.href = 'checkin.html';
+            ctaRegisterBtn.href = '/checkin';
         }
     } else {
         // User is logged out - show Register Now
         if (heroRegisterBtn) {
             heroRegisterBtn.textContent = 'Register Now';
-            heroRegisterBtn.href = 'register.html';
+            heroRegisterBtn.href = '/register';
         }
         if (ctaRegisterBtn) {
             ctaRegisterBtn.textContent = 'Register Now';
-            ctaRegisterBtn.href = 'register.html';
+            ctaRegisterBtn.href = '/register';
         }
     }
 }
@@ -720,11 +727,11 @@ function updateScheduleCTA() {
         if (user) {
             // User is logged in - change to Check In
             scheduleRegisterBtn.textContent = 'Check In';
-            scheduleRegisterBtn.href = 'checkin.html';
+            scheduleRegisterBtn.href = '/checkin';
         } else {
             // User is logged out - show Register Now
             scheduleRegisterBtn.textContent = 'Register Now';
-            scheduleRegisterBtn.href = 'register.html';
+            scheduleRegisterBtn.href = '/register';
         }
     }
 }

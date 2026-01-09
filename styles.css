@@ -238,14 +238,14 @@ body {
 
 .logo-text {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 400;
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     text-decoration: none;
     transition: var(--transition);
     white-space: nowrap;
     letter-spacing: -0.5px;
-    text-transform: lowercase;
+    text-transform: none;
     position: relative;
 }
 

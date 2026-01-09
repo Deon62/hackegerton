@@ -69,6 +69,33 @@
         <section class="host-content-section">
             <div class="container">
                 <div class="host-content-wrapper">
+                    <!-- Registration Deadline Countdown -->
+                    <div id="countdownSection" style="max-width: 800px; margin: 0 auto 3rem; background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%); padding: 2.5rem; border-radius: 1rem; border: 2px solid rgba(239, 68, 68, 0.3); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⏰</div>
+                            <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">Registration Deadline</h2>
+                            <p style="font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 400; color: var(--text-secondary);">Final day for registration and payment: <strong style="color: #dc2626;">February 21, 2026</strong></p>
+                        </div>
+                        <div id="countdown" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                            <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                                <div id="days" style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
+                                <div style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Days</div>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                                <div id="hours" style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
+                                <div style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Hours</div>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                                <div id="minutes" style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
+                                <div style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Minutes</div>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                                <div id="seconds" style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
+                                <div style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="loginRequired" style="display: none; background: #ffffff; padding: 2.5rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); text-align: center; max-width: 500px; margin: 0 auto;">
                         <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">Login Required</h2>
                         <p style="font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 300; color: var(--text-secondary); margin-bottom: 1.5rem;">You need to create an account and login to register for the hackathon.</p>
@@ -345,8 +372,47 @@
             }
         });
         
+        // Countdown timer for registration deadline
+        function updateCountdown() {
+            // Set deadline to February 21, 2026 at 11:59 PM
+            const deadline = new Date('2026-02-21T23:59:59').getTime();
+            
+            function update() {
+                const now = new Date().getTime();
+                const distance = deadline - now;
+                
+                if (distance < 0) {
+                    // Deadline has passed
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+            
+            // Update immediately
+            update();
+            
+            // Update every second
+            setInterval(update, 1000);
+        }
+        
         // Check login status on page load
         checkLoginStatus();
+        
+        // Initialize countdown timer
+        updateCountdown();
     </script>
 </body>
 </html>

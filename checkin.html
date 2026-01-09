@@ -25,6 +25,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        @media (max-width: 768px) {
+            #countdownSection h2 {
+                font-size: 1rem !important;
+            }
+            #countdown .countdown-number {
+                font-size: 1.25rem !important;
+            }
+            #countdown .countdown-label {
+                font-size: 0.65rem !important;
+            }
+            #countdown .countdown-separator {
+                font-size: 1rem !important;
+            }
+            #countdown {
+                gap: 0.5rem !important;
+            }
+        }
+        @media (max-width: 480px) {
+            #countdownSection h2 {
+                font-size: 0.875rem !important;
+            }
+            #countdown .countdown-number {
+                font-size: 1rem !important;
+            }
+            #countdown .countdown-label {
+                font-size: 0.6rem !important;
+            }
+            #countdown .countdown-separator {
+                font-size: 0.875rem !important;
+            }
+            #countdown {
+                gap: 0.4rem !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -70,28 +106,29 @@
             <div class="container">
                 <div class="host-content-wrapper">
                     <!-- Registration Deadline Countdown -->
-                    <div id="countdownSection" style="max-width: 800px; margin: 0 auto 3rem; background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%); padding: 2.5rem; border-radius: 1rem; border: 2px solid rgba(239, 68, 68, 0.3); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
-                        <div style="text-align: center; margin-bottom: 1.5rem;">
-                            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⏰</div>
-                            <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">Registration Deadline</h2>
-                            <p style="font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 400; color: var(--text-secondary);">Final day for registration and payment: <strong style="color: #dc2626;">February 21, 2026</strong></p>
+                    <div id="countdownSection" style="max-width: 800px; margin: 0 auto 2rem; padding: 1rem;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">Registration Deadline: <strong style="color: #dc2626;">February 21, 2026</strong></h2>
                         </div>
-                        <div id="countdown" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-top: 2rem;">
-                            <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-                                <div id="days" style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
-                                <div style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Days</div>
+                        <div id="countdown" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                            <div style="display: flex; flex-direction: column; align-items: center; min-width: fit-content;">
+                                <div id="days" class="countdown-number" style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
+                                <div class="countdown-label" style="font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.25rem; text-transform: uppercase;">Days</div>
                             </div>
-                            <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-                                <div id="hours" style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
-                                <div style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Hours</div>
+                            <div class="countdown-separator" style="color: var(--text-secondary); font-size: 1.5rem; font-weight: 300;">:</div>
+                            <div style="display: flex; flex-direction: column; align-items: center; min-width: fit-content;">
+                                <div id="hours" class="countdown-number" style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
+                                <div class="countdown-label" style="font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.25rem; text-transform: uppercase;">Hours</div>
                             </div>
-                            <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-                                <div id="minutes" style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
-                                <div style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Minutes</div>
+                            <div class="countdown-separator" style="color: var(--text-secondary); font-size: 1.5rem; font-weight: 300;">:</div>
+                            <div style="display: flex; flex-direction: column; align-items: center; min-width: fit-content;">
+                                <div id="minutes" class="countdown-number" style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
+                                <div class="countdown-label" style="font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.25rem; text-transform: uppercase;">Minutes</div>
                             </div>
-                            <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem 1rem; border-radius: 0.75rem; text-align: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-                                <div id="seconds" style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
-                                <div style="font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">Seconds</div>
+                            <div class="countdown-separator" style="color: var(--text-secondary); font-size: 1.5rem; font-weight: 300;">:</div>
+                            <div style="display: flex; flex-direction: column; align-items: center; min-width: fit-content;">
+                                <div id="seconds" class="countdown-number" style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-color); line-height: 1;">00</div>
+                                <div class="countdown-label" style="font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.25rem; text-transform: uppercase;">Seconds</div>
                             </div>
                         </div>
                     </div>

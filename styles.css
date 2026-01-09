@@ -338,6 +338,17 @@ body {
     fill: none;
 }
 
+.profile-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-btn.has-avatar svg {
+    display: none;
+}
+
 /* Account Modal */
 .account-modal {
     display: none;

@@ -142,13 +142,19 @@
                         localStorage.setItem('hackegerton_user', JSON.stringify({
                             id: user.id,
                             nickname: user.nickname,
-                            email: user.email
+                            email: user.email,
+                            avatar_url: user.avatar_url || 'assets/male.png'
                         }));
                         
                         messageDiv.style.display = 'block';
                         messageDiv.style.background = '#d1fae5';
                         messageDiv.style.color = '#065f46';
                         messageDiv.textContent = 'Login successful! Redirecting...';
+                        
+                        // Update profile button
+                        if (typeof updateProfileButton === 'function') {
+                            updateProfileButton();
+                        }
                         
                         // Redirect to home page
                         setTimeout(() => {

@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS users (
     nickname TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     password_hash TEXT NOT NULL,
+    gender TEXT CHECK (gender IN ('male', 'female')),
+    avatar_url TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
 );
@@ -100,6 +102,11 @@ END;
 $$ language 'plpgsql';
 
 -- 10. Create triggers to automatically update updated_at
+-- Drop triggers if they exist to avoid errors
+DROP TRIGGER IF EXISTS update_users_updated_at ON users;
+DROP TRIGGER IF EXISTS update_hackathon_registrations_updated_at ON hackathon_registrations;
+DROP TRIGGER IF EXISTS update_teams_updated_at ON teams;
+
 CREATE TRIGGER update_users_updated_at BEFORE UPDATE ON users
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
@@ -124,6 +131,17 @@ DROP POLICY IF EXISTS "Users can update own registrations" ON hackathon_registra
 DROP POLICY IF EXISTS "Users can read teams" ON teams;
 DROP POLICY IF EXISTS "Users can create teams" ON teams;
 DROP POLICY IF EXISTS "Users can update own teams" ON teams;
+
+-- Drop existing public access policies if they exist
+DROP POLICY IF EXISTS "Public read access" ON users;
+DROP POLICY IF EXISTS "Public insert access" ON users;
+DROP POLICY IF EXISTS "Public update access" ON users;
+DROP POLICY IF EXISTS "Public read access" ON hackathon_registrations;
+DROP POLICY IF EXISTS "Public insert access" ON hackathon_registrations;
+DROP POLICY IF EXISTS "Public update access" ON hackathon_registrations;
+DROP POLICY IF EXISTS "Public read access" ON teams;
+DROP POLICY IF EXISTS "Public insert access" ON teams;
+DROP POLICY IF EXISTS "Public update access" ON teams;
 
 -- Create public access policies (since we're using custom auth)
 -- In production, you'd want to secure these properly

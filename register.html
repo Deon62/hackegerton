@@ -74,6 +74,15 @@
                                 <input type="password" id="password" name="password" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
                             </div>
                             
+                            <div style="margin-bottom: 1.5rem;">
+                                <label for="gender" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Gender *</label>
+                                <select id="gender" name="gender" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box; background: white;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            
                             <div id="registerMessage" style="margin-bottom: 1.5rem; display: none; padding: 0.875rem; border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 0.9rem;"></div>
                             
                             <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.875rem; font-size: 1rem;">Register</button>
@@ -136,6 +145,7 @@
             const nickname = document.getElementById('nickname').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const gender = document.getElementById('gender').value;
             const messageDiv = document.getElementById('registerMessage');
             const submitBtn = this.querySelector('button[type="submit"]');
             
@@ -146,6 +156,9 @@
             try {
                 // Hash password
                 const passwordHash = await hashPassword(password);
+                
+                // Determine avatar URL based on gender
+                const avatarUrl = gender === 'male' ? 'assets/male.png' : 'assets/female.png';
                 
                 // Check if email already exists
                 const existingUsers = await supabaseClient.select('users', { email });
@@ -163,7 +176,9 @@
                 const newUser = await supabaseClient.insert('users', {
                     nickname: nickname,
                     email: email,
-                    password_hash: passwordHash
+                    password_hash: passwordHash,
+                    gender: gender,
+                    avatar_url: avatarUrl
                 });
                 
                 if (newUser && newUser[0]) {
@@ -171,7 +186,8 @@
                     localStorage.setItem('hackegerton_user', JSON.stringify({
                         id: newUser[0].id,
                         nickname: newUser[0].nickname,
-                        email: newUser[0].email
+                        email: newUser[0].email,
+                        avatar_url: newUser[0].avatar_url || avatarUrl
                     }));
                     
                     // Update statistics
@@ -185,6 +201,11 @@
                     messageDiv.style.background = '#d1fae5';
                     messageDiv.style.color = '#065f46';
                     messageDiv.textContent = 'Account created successfully! Redirecting...';
+                    
+                    // Update profile button
+                    if (typeof updateProfileButton === 'function') {
+                        updateProfileButton();
+                    }
                     
                     // Redirect to home page
                     setTimeout(() => {

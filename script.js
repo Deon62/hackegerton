@@ -409,11 +409,17 @@ function initAccountModal() {
     function updateModalContent() {
         if (isLoggedIn()) {
             const user = getUser();
+            const avatarUrl = user.avatar_url || 'assets/male.png';
             modalTitle.textContent = 'Account';
             modalContent.innerHTML = `
                 <div class="account-user-info">
-                    <p class="user-name">${user.nickname || user.email}</p>
-                    <p>${user.email}</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <img src="${avatarUrl}" alt="Avatar" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-color);">
+                        <div>
+                            <p class="user-name">${user.nickname || user.email}</p>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">${user.email}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="account-modal-buttons">
                     <a href="checkin.html" class="account-modal-btn account-modal-btn-primary">Hackegerton Check In</a>
@@ -465,6 +471,9 @@ function initAccountModal() {
     
     // Update modal when page loads
     updateModalContent();
+    if (typeof updateProfileButton === 'function') {
+        updateProfileButton();
+    }
 }
 
 // Logout function
@@ -481,3 +490,43 @@ function handleLogout() {
 
 // Make logout function globally available
 window.handleLogout = handleLogout;
+
+// Update profile button function (globally available)
+function updateProfileButton() {
+    const profileBtn = document.getElementById('profileBtn');
+    if (!profileBtn) return;
+    
+    function getUser() {
+        const userStr = localStorage.getItem('hackegerton_user');
+        return userStr ? JSON.parse(userStr) : null;
+    }
+    
+    const user = getUser();
+    if (user && user.avatar_url) {
+        // Remove existing content
+        profileBtn.innerHTML = '';
+        // Add avatar image
+        const img = document.createElement('img');
+        img.src = user.avatar_url;
+        img.alt = 'Profile';
+        profileBtn.appendChild(img);
+        profileBtn.classList.add('has-avatar');
+    } else {
+        // Show default icon
+        profileBtn.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        `;
+        profileBtn.classList.remove('has-avatar');
+    }
+}
+
+// Make updateProfileButton globally available
+window.updateProfileButton = updateProfileButton;
+
+// Update profile button on page load if user is logged in
+document.addEventListener('DOMContentLoaded', () => {
+    updateProfileButton();
+});

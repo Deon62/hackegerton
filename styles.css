@@ -2740,24 +2740,27 @@ body {
     }
 
     .hero-content {
-        padding: 6rem 0 4rem 0; /* Increased bottom padding to push content down */
+        padding: 8rem 0 4rem 0; /* Increased top padding to push content down */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         min-height: calc(100vh - 100px); /* Make content fill viewport */
-        text-align: center; /* Center align content on mobile */
-        max-width: 100%; /* Remove max-width restriction */
-        margin: 0 auto; /* Center the content */
+        text-align: left; /* Left align content on mobile */
+        max-width: 75%; /* Limit width to 3/4 */
+        margin: 0; /* Align from left */
+        padding-left: 1.5rem; /* Add left padding */
     }
 
     .hero-title {
         font-size: 2rem;
-        text-align: center; /* Center the title */
+        text-align: left; /* Left align the title */
+        max-width: 100%;
     }
 
     .hero-subtitle {
         font-size: 1.1rem;
-        text-align: center; /* Center the subtitle */
+        text-align: left; /* Left align the subtitle */
+        max-width: 100%;
     }
 
     .section-title {
@@ -3261,15 +3264,24 @@ body {
     }
 
     .hero-content {
-        padding: 5rem 0 4rem 0; /* Increased bottom padding */
+        padding: 7rem 0 4rem 0; /* Increased top padding to push content down */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         min-height: calc(100vh - 80px);
+        text-align: left; /* Left align content */
+        max-width: 75%; /* Limit width to 3/4 */
+        margin: 0; /* Align from left */
+        padding-left: 1.5rem; /* Add left padding */
     }
 
     .hero-title {
         font-size: 1.75rem;
+        text-align: left; /* Left align the title */
+    }
+
+    .hero-subtitle {
+        text-align: left; /* Left align the subtitle */
     }
 
     .section-title {

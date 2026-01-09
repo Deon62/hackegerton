@@ -2247,6 +2247,24 @@ body {
     margin: 0 auto;
 }
 
+/* Prizes page icon styling */
+.prizes-hero-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.prizes-hero-icon:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
 .legal-content {
     max-width: 100%;
 }
@@ -3107,6 +3125,10 @@ body {
 
     .app-description {
         font-size: 1rem;
+    }
+
+    .prizes-hero-icon {
+        max-width: 300px !important;
     }
 
     .app-features {

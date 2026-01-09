@@ -2568,30 +2568,53 @@ body {
     }
 
     .nav-brand {
+        display: none; /* Hide logo text on mobile */
+    }
+
+    .nav {
+        justify-content: space-between; /* Ensure proper spacing */
+    }
+
+    .nav-toggle {
         order: 1;
+        display: flex;
+        margin-right: 0; /* Reset margin */
     }
 
     .btn-contact {
         order: 2;
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
+        margin-left: 0.5rem;
+        max-width: 150px; /* Limit width on mobile */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .btn-contact.mobile-hidden {
+        display: none; /* Hide Create Account button when logged in */
     }
 
     .profile-btn {
-        order: 2.5;
+        order: 3;
         width: 36px;
         height: 36px;
         margin-left: 0.5rem;
+        display: none; /* Hide by default on mobile */
+    }
+
+    .profile-btn.mobile-visible {
+        display: flex; /* Show when logged in */
+    }
+
+    .profile-btn.mobile-hidden {
+        display: none; /* Hide profile button when logged out */
     }
 
     .profile-btn svg {
         width: 18px;
         height: 18px;
-    }
-
-    .nav-toggle {
-        order: 3;
-        display: flex;
     }
 
     .nav-menu {

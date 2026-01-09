@@ -576,6 +576,16 @@ function updateProfileButton() {
     }
     
     const user = getUser();
+    
+    // Update mobile visibility based on login status
+    if (user) {
+        profileBtn.classList.remove('mobile-hidden');
+        profileBtn.classList.add('mobile-visible');
+    } else {
+        profileBtn.classList.add('mobile-hidden');
+        profileBtn.classList.remove('mobile-visible');
+    }
+    
     if (user && user.avatar_url) {
         // Remove existing content
         profileBtn.innerHTML = '';
@@ -603,7 +613,7 @@ window.updateProfileButton = updateProfileButton;
 // Update navbar account button
 function updateNavAccountButton() {
     const navAccountBtn = document.getElementById('navAccountBtn');
-    if (!navAccountBtn) return;
+    const profileBtn = document.getElementById('profileBtn');
     
     function getUser() {
         const userStr = localStorage.getItem('hackegerton_user');
@@ -612,17 +622,35 @@ function updateNavAccountButton() {
     
     const user = getUser();
     if (user && user.nickname) {
-        navAccountBtn.textContent = `Hello, ${user.nickname}`;
-        navAccountBtn.href = '#';
-        navAccountBtn.onclick = function(e) {
-            e.preventDefault();
-            const profileBtn = document.getElementById('profileBtn');
-            if (profileBtn) profileBtn.click();
-        };
+        // User is logged in
+        if (navAccountBtn) {
+            navAccountBtn.textContent = `Hello, ${user.nickname}`;
+            navAccountBtn.href = '#';
+            navAccountBtn.onclick = function(e) {
+                e.preventDefault();
+                if (profileBtn) profileBtn.click();
+            };
+            // Hide Create Account button on mobile when logged in
+            navAccountBtn.classList.add('mobile-hidden');
+        }
+        // Show profile button on mobile when logged in
+        if (profileBtn) {
+            profileBtn.classList.remove('mobile-hidden');
+            profileBtn.classList.add('mobile-visible');
+        }
     } else {
-        navAccountBtn.textContent = 'Create Account';
-        navAccountBtn.href = 'register.html';
-        navAccountBtn.onclick = null;
+        // User is logged out
+        if (navAccountBtn) {
+            navAccountBtn.textContent = 'Create Account';
+            navAccountBtn.href = 'register.html';
+            navAccountBtn.onclick = null;
+            // Show Create Account button on mobile when logged out
+            navAccountBtn.classList.remove('mobile-hidden');
+        }
+        // Hide profile button on mobile when logged out
+        if (profileBtn) {
+            profileBtn.classList.add('mobile-hidden');
+        }
     }
 }
 

@@ -71,7 +71,19 @@
                             
                             <div style="margin-bottom: 1.5rem;">
                                 <label for="password" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Password</label>
-                                <input type="password" id="password" name="password" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                <div style="position: relative;">
+                                    <input type="password" id="password" name="password" required style="width: 100%; padding: 0.875rem 3rem 0.875rem 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                    <button type="button" id="togglePassword" onclick="togglePasswordVisibility()" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; padding: 0.25rem; display: flex; align-items: center; justify-content: center; color: var(--text-secondary);" aria-label="Toggle password visibility">
+                                        <svg id="eyeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        <svg id="eyeOffIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                             
                             <div style="margin-bottom: 1.5rem;">
@@ -138,6 +150,23 @@
     <script src="supabase-config.js"></script>
     <script src="script.js"></script>
     <script>
+        // Password visibility toggle
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            const eyeOffIcon = document.getElementById('eyeOffIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.style.display = 'none';
+                eyeOffIcon.style.display = 'block';
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.style.display = 'block';
+                eyeOffIcon.style.display = 'none';
+            }
+        }
+        
         // Registration form handling with Supabase
         document.getElementById('registerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -161,15 +190,20 @@
                 const avatarUrl = gender === 'male' ? 'assets/male.png' : 'assets/female.png';
                 
                 // Check if email already exists
-                const existingUsers = await supabaseClient.select('users', { email });
-                if (existingUsers && existingUsers.length > 0) {
-                    messageDiv.style.display = 'block';
-                    messageDiv.style.background = '#fee2e2';
-                    messageDiv.style.color = '#991b1b';
-                    messageDiv.textContent = 'An account with this email already exists. Please login instead.';
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Register';
-                    return;
+                try {
+                    const existingUsers = await supabaseClient.select('users', { email });
+                    if (existingUsers && existingUsers.length > 0) {
+                        messageDiv.style.display = 'block';
+                        messageDiv.style.background = '#fee2e2';
+                        messageDiv.style.color = '#991b1b';
+                        messageDiv.textContent = 'An account with this email already exists. Please login instead.';
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Register';
+                        return;
+                    }
+                } catch (checkError) {
+                    console.error('Error checking existing users:', checkError);
+                    // Continue with registration attempt
                 }
                 
                 // Insert new user
@@ -212,14 +246,29 @@
                         window.location.href = 'index.html';
                     }, 1000);
                 } else {
-                    throw new Error('Failed to create account');
+                    throw new Error('No user data returned from server');
                 }
             } catch (error) {
                 console.error('Registration error:', error);
+                console.error('Error details:', {
+                    message: error.message,
+                    status: error.status,
+                    stack: error.stack
+                });
+                
+                let errorMessage = 'Failed to create account. ';
+                if (error.message) {
+                    errorMessage += error.message;
+                } else if (error.status) {
+                    errorMessage += `Server error (${error.status}). `;
+                } else {
+                    errorMessage += 'Please check your connection and try again.';
+                }
+                
                 messageDiv.style.display = 'block';
                 messageDiv.style.background = '#fee2e2';
                 messageDiv.style.color = '#991b1b';
-                messageDiv.textContent = 'Failed to create account. Please try again.';
+                messageDiv.innerHTML = `<strong>Error:</strong> ${errorMessage}`;
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Register';
             }

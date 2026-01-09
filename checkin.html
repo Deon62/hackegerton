@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hackegerton Check In - Register for the hackathon">
+    <title>Hackegerton Check In - Hackegerton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-text">Hackegerton</a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li><a href="checkin.html" class="nav-link active">Hackegerton Check In</a></li>
+                <li><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                <li><a href="prizes.html" class="nav-link">Prizes</a></li>
+            </ul>
+            <a href="register.html" class="btn-contact">Create Account</a>
+            <button class="profile-btn" id="profileBtn" aria-label="Account Profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="host-page-hero">
+            <div class="container">
+                <h1 class="host-page-title">Hackegerton Check In</h1>
+                <p class="host-page-subtitle">Register for the hackathon. Choose your track and complete your registration.</p>
+            </div>
+        </section>
+
+        <section class="host-content-section">
+            <div class="container">
+                <div class="host-content-wrapper">
+                    <div id="loginRequired" style="display: none; background: #ffffff; padding: 2.5rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); text-align: center; max-width: 500px; margin: 0 auto;">
+                        <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">Login Required</h2>
+                        <p style="font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 300; color: var(--text-secondary); margin-bottom: 1.5rem;">You need to create an account and login to register for the hackathon.</p>
+                        <div style="display: flex; gap: 1rem; justify-content: center;">
+                            <a href="register.html" class="btn btn-primary">Create Account</a>
+                            <a href="login.html" class="btn btn-secondary">Login</a>
+                        </div>
+                    </div>
+
+                    <div id="checkInForm" style="display: none; max-width: 600px; margin: 0 auto;">
+                        <div style="background: #ffffff; padding: 2.5rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+                            <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1.5rem;">Hackathon Registration</h2>
+                            
+                            <form id="checkinForm">
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label for="track" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Track *</label>
+                                    <select id="track" name="track" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box; background: white;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                        <option value="">Select a track</option>
+                                        <option value="AI & Data">AI & Data</option>
+                                        <option value="Web / Mobile">Web / Mobile</option>
+                                        <option value="FinTech / Blockchain">FinTech / Blockchain</option>
+                                    </select>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label for="registrationType" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Registration Type *</label>
+                                    <select id="registrationType" name="registrationType" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box; background: white;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                        <option value="">Select registration type</option>
+                                        <option value="Main Hackathon">Main Hackathon (299 KSH)</option>
+                                        <option value="Mini Hackathon">Mini Hackathon (Free - Limited to 50 participants)</option>
+                                    </select>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label for="teamName" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Team Name (Optional)</label>
+                                    <input type="text" id="teamName" name="teamName" style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'" placeholder="Enter your team name if registering as a team">
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Team Members (Optional)</label>
+                                    <div id="teamMembersContainer">
+                                        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                            <input type="text" class="team-member-input" placeholder="Team member email" style="flex: 1; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; box-sizing: border-box;">
+                                            <button type="button" class="remove-member-btn" style="padding: 0.875rem 1rem; background: var(--error); color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 0.9rem;" onclick="removeTeamMember(this)">Remove</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="addTeamMember()" style="padding: 0.5rem 1rem; background: var(--background-light); color: var(--text-primary); border: 2px solid var(--border-color); border-radius: 0.5rem; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 0.9rem;">+ Add Team Member</button>
+                                </div>
+                                
+                                <div id="checkinMessage" style="margin-bottom: 1.5rem; display: none; padding: 0.875rem; border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 0.9rem;"></div>
+                                
+                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.875rem; font-size: 1rem;">Complete Check In</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Account Modal -->
+    <div class="account-modal" id="accountModal">
+        <div class="account-modal-content">
+            <div class="account-modal-header">
+                <h3 id="modalTitle">Account</h3>
+                <button class="account-modal-close" id="modalClose">&times;</button>
+            </div>
+            <div id="modalContent">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-icons">
+                    <a href="https://twitter.com/hackegerton" class="footer-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/hackegerton" class="footer-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="mailto:info@hackegerton.com" class="footer-icon" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hackegerton</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Check if user is logged in
+        function checkLoginStatus() {
+            const user = JSON.parse(localStorage.getItem('hackegerton_user') || 'null');
+            const loginRequired = document.getElementById('loginRequired');
+            const checkInForm = document.getElementById('checkInForm');
+            
+            if (!user) {
+                loginRequired.style.display = 'block';
+                checkInForm.style.display = 'none';
+            } else {
+                loginRequired.style.display = 'none';
+                checkInForm.style.display = 'block';
+                
+                // Check if user already registered
+                checkExistingRegistration(user.id);
+            }
+        }
+        
+        // Check if user already has a registration
+        async function checkExistingRegistration(userId) {
+            try {
+                const registrations = await supabaseClient.select('hackathon_registrations', { user_id: userId });
+                if (registrations && registrations.length > 0) {
+                    const registration = registrations[0];
+                    const form = document.getElementById('checkinForm');
+                    const messageDiv = document.getElementById('checkinMessage');
+                    
+                    form.style.display = 'none';
+                    messageDiv.style.display = 'block';
+                    messageDiv.style.background = '#dbeafe';
+                    messageDiv.style.color = '#1e40af';
+                    messageDiv.innerHTML = `
+                        <strong>You're already registered!</strong><br>
+                        Track: ${registration.track}<br>
+                        Registration Type: ${registration.registration_type}<br>
+                        Status: ${registration.payment_status}
+                    `;
+                }
+            } catch (error) {
+                console.error('Error checking registration:', error);
+            }
+        }
+        
+        // Add team member input
+        function addTeamMember() {
+            const container = document.getElementById('teamMembersContainer');
+            const div = document.createElement('div');
+            div.style.cssText = 'display: flex; gap: 0.5rem; margin-bottom: 0.5rem;';
+            div.innerHTML = `
+                <input type="email" class="team-member-input" placeholder="Team member email" style="flex: 1; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: Nunito, sans-serif; font-size: 1rem; box-sizing: border-box;">
+                <button type="button" class="remove-member-btn" style="padding: 0.875rem 1rem; background: var(--error); color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-family: Nunito, sans-serif; font-size: 0.9rem;" onclick="removeTeamMember(this)">Remove</button>
+            `;
+            container.appendChild(div);
+        }
+        
+        // Remove team member input
+        function removeTeamMember(btn) {
+            btn.parentElement.remove();
+        }
+        
+        // Check-in form submission
+        document.getElementById('checkinForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const user = JSON.parse(localStorage.getItem('hackegerton_user'));
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            const track = document.getElementById('track').value;
+            const registrationType = document.getElementById('registrationType').value;
+            const teamName = document.getElementById('teamName').value;
+            const teamMemberInputs = document.querySelectorAll('.team-member-input');
+            const teamMembers = Array.from(teamMemberInputs)
+                .map(input => input.value.trim())
+                .filter(email => email.length > 0);
+            
+            const messageDiv = document.getElementById('checkinMessage');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+            
+            try {
+                const registrationData = {
+                    user_id: user.id,
+                    track: track,
+                    registration_type: registrationType,
+                    team_name: teamName || null,
+                    team_members: teamMembers,
+                    payment_status: registrationType === 'Mini Hackathon' ? 'free' : 'pending'
+                };
+                
+                const result = await supabaseClient.insert('hackathon_registrations', registrationData);
+                
+                if (result && result[0]) {
+                    // Update teams count
+                    const teamsCount = parseInt(localStorage.getItem('hackegerton_teams') || '0') + 1;
+                    localStorage.setItem('hackegerton_teams', teamsCount);
+                    if (typeof updateStatistics === 'function') {
+                        updateStatistics(null, teamsCount);
+                    }
+                    
+                    messageDiv.style.display = 'block';
+                    messageDiv.style.background = '#d1fae5';
+                    messageDiv.style.color = '#065f46';
+                    messageDiv.innerHTML = `
+                        <strong>Registration successful!</strong><br>
+                        You've successfully checked in for Hackegerton. ${registrationType === 'Main Hackathon' ? 'Please complete payment to finalize your registration.' : ''}
+                    `;
+                    
+                    this.style.display = 'none';
+                } else {
+                    throw new Error('Failed to register');
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                messageDiv.style.display = 'block';
+                messageDiv.style.background = '#fee2e2';
+                messageDiv.style.color = '#991b1b';
+                messageDiv.textContent = 'Failed to complete registration. Please try again.';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Complete Check In';
+            }
+        });
+        
+        // Check login status on page load
+        checkLoginStatus();
+    </script>
+</body>
+</html>

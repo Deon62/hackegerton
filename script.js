@@ -416,6 +416,7 @@ function initAccountModal() {
                     <p>${user.email}</p>
                 </div>
                 <div class="account-modal-buttons">
+                    <a href="checkin.html" class="account-modal-btn account-modal-btn-primary">Hackegerton Check In</a>
                     <button class="account-modal-btn account-modal-btn-danger" onclick="handleLogout()">Logout</button>
                 </div>
             `;
@@ -424,7 +425,7 @@ function initAccountModal() {
             modalContent.innerHTML = `
                 <div class="account-modal-buttons">
                     <a href="login.html" class="account-modal-btn account-modal-btn-primary">Login</a>
-                    <a href="register.html" class="account-modal-btn account-modal-btn-secondary">Register</a>
+                    <a href="register.html" class="account-modal-btn account-modal-btn-secondary">Create Account</a>
                 </div>
             `;
         }

@@ -20,11 +20,11 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="schedule.html" class="nav-link">Schedule</a></li>
-                <li><a href="register.html" class="nav-link">Register</a></li>
+                <li><a href="checkin.html" class="nav-link">Hackegerton Check In</a></li>
                 <li><a href="sponsors.html" class="nav-link">Sponsors</a></li>
                 <li><a href="prizes.html" class="nav-link">Prizes</a></li>
             </ul>
-            <a href="register.html" class="btn-contact">Register Now</a>
+            <a href="register.html" class="btn-contact">Create Account</a>
             <button class="profile-btn" id="profileBtn" aria-label="Account Profile">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -110,43 +110,64 @@
         </div>
     </footer>
 
+    <script src="supabase-config.js"></script>
     <script src="script.js"></script>
     <script>
-        // Login form handling
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        // Login form handling with Supabase
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const messageDiv = document.getElementById('loginMessage');
+            const submitBtn = this.querySelector('button[type="submit"]');
             
-            // Get users from localStorage
-            const users = JSON.parse(localStorage.getItem('hackegerton_users') || '[]');
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Logging in...';
             
-            // Find user
-            const user = users.find(u => u.email === email && u.password === password);
-            
-            if (user) {
-                // Login successful
-                localStorage.setItem('hackegerton_user', JSON.stringify({
-                    nickname: user.nickname,
-                    email: user.email
-                }));
+            try {
+                // Hash password to compare
+                const passwordHash = await hashPassword(password);
                 
-                messageDiv.style.display = 'block';
-                messageDiv.style.background = '#d1fae5';
-                messageDiv.style.color = '#065f46';
-                messageDiv.textContent = 'Login successful! Redirecting...';
+                // Find user by email
+                const users = await supabaseClient.select('users', { email });
                 
-                // Redirect to home page
-                setTimeout(() => {
-                    window.location.href = 'index.html';
-                }, 1000);
-            } else {
+                if (users && users.length > 0) {
+                    const user = users[0];
+                    
+                    // Compare password hashes
+                    if (user.password_hash === passwordHash) {
+                        // Login successful
+                        localStorage.setItem('hackegerton_user', JSON.stringify({
+                            id: user.id,
+                            nickname: user.nickname,
+                            email: user.email
+                        }));
+                        
+                        messageDiv.style.display = 'block';
+                        messageDiv.style.background = '#d1fae5';
+                        messageDiv.style.color = '#065f46';
+                        messageDiv.textContent = 'Login successful! Redirecting...';
+                        
+                        // Redirect to home page
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 1000);
+                    } else {
+                        throw new Error('Invalid password');
+                    }
+                } else {
+                    throw new Error('User not found');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
                 messageDiv.style.display = 'block';
                 messageDiv.style.background = '#fee2e2';
                 messageDiv.style.color = '#991b1b';
                 messageDiv.textContent = 'Invalid email or password. Please try again.';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Login';
             }
         });
     </script>

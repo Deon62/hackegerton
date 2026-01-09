@@ -3231,7 +3231,14 @@ body {
     }
 }
 
+/* Fix text overflow on small screens */
 @media (max-width: 480px) {
+    /* Ensure all text containers wrap properly */
+    * {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
     body {
         overflow-x: hidden;
         width: 100%;

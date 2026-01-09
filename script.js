@@ -630,8 +630,9 @@ function updateNavAccountButton() {
                 e.preventDefault();
                 if (profileBtn) profileBtn.click();
             };
-            // Hide Create Account button on mobile when logged in
-            navAccountBtn.classList.add('mobile-hidden');
+            // Show salutation on mobile when logged in
+            navAccountBtn.classList.remove('mobile-hidden');
+            navAccountBtn.classList.add('mobile-visible');
         }
         // Show profile button on mobile when logged in
         if (profileBtn) {
@@ -646,10 +647,12 @@ function updateNavAccountButton() {
             navAccountBtn.onclick = null;
             // Show Create Account button on mobile when logged out
             navAccountBtn.classList.remove('mobile-hidden');
+            navAccountBtn.classList.remove('mobile-visible');
         }
         // Hide profile button on mobile when logged out
         if (profileBtn) {
             profileBtn.classList.add('mobile-hidden');
+            profileBtn.classList.remove('mobile-visible');
         }
     }
 }

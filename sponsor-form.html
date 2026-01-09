@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Become a sponsor of Hackegerton - University hackathon">
+    <meta name="keywords" content="hackegerton sponsor, sponsorship, hackathon sponsor">
+    <meta name="robots" content="index, follow">
+    
+    <title>Become a Sponsor - Hackegerton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://hackegerton.com/sponsor-form">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-text">Hackegerton</a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li><a href="checkin.html" class="nav-link">Hackegerton Check In</a></li>
+                <li><a href="sponsors.html" class="nav-link">Sponsors</a></li>
+                <li><a href="prizes.html" class="nav-link">Prizes</a></li>
+            </ul>
+            <a href="register.html" class="btn-contact" id="navAccountBtn">Create Account</a>
+            <button class="profile-btn" id="profileBtn" aria-label="Account Profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="host-page-hero">
+            <div class="container">
+                <h1 class="host-page-title">Become a Sponsor</h1>
+                <p class="host-page-subtitle">Join us in supporting the next generation of innovators. Fill out the form below to express your interest in sponsoring Hackegerton.</p>
+            </div>
+        </section>
+
+        <section class="host-content-section">
+            <div class="container">
+                <div class="host-content-wrapper">
+                    <div class="host-section-block" style="max-width: 700px; margin: 0 auto;">
+                        <form id="sponsorForm" style="background: #ffffff; padding: 2.5rem; border-radius: 1rem; border: 2px solid var(--border-color); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); margin-top: 2rem;">
+                            
+                            <!-- Company/Organization Information -->
+                            <div style="margin-bottom: 2.5rem;">
+                                <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--border-color);">Company/Organization Information</h2>
+                                
+                                <div style="margin-bottom: 1.5rem; margin-top: 1.5rem;">
+                                    <label for="companyName" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Company/Organization Name <span style="color: #ef4444;">*</span></label>
+                                    <input type="text" id="companyName" name="companyName" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                </div>
+                            </div>
+
+                            <!-- Contact Person -->
+                            <div style="margin-bottom: 2.5rem;">
+                                <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--border-color);">
+                                    Contact Person
+                                    <span style="display: block; font-size: 0.875rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.25rem; font-style: italic;">Who you'll talk to</span>
+                                </h2>
+                                
+                                <div style="margin-bottom: 1.5rem; margin-top: 1.5rem;">
+                                    <label for="fullName" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Full Name <span style="color: #ef4444;">*</span></label>
+                                    <input type="text" id="fullName" name="fullName" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label for="roleTitle" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Role / Title <span style="color: var(--text-secondary); font-weight: 400;">(optional)</span></label>
+                                    <input type="text" id="roleTitle" name="roleTitle" style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label for="email" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Email Address <span style="color: #ef4444;">*</span></label>
+                                    <input type="email" id="email" name="email" required style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem;">
+                                    <label for="phone" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Phone / WhatsApp <span style="color: var(--text-secondary); font-weight: 400;">(optional but useful)</span></label>
+                                    <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                </div>
+                            </div>
+
+                            <!-- Sponsorship Interest -->
+                            <div style="margin-bottom: 2.5rem;">
+                                <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--border-color);">
+                                    Sponsorship Interest
+                                    <span style="display: block; font-size: 0.875rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.25rem; font-style: italic;">Qualify intent fast</span>
+                                </h2>
+                                
+                                <div style="margin-top: 1.5rem;">
+                                    <label style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 1rem;">Sponsorship Type <span style="color: #ef4444;">*</span></label>
+                                    
+                                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                        <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 0.5rem; transition: var(--transition);" onmouseover="this.style.borderColor='var(--primary-color)'; this.style.backgroundColor='rgba(37, 99, 235, 0.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent'">
+                                            <input type="checkbox" name="sponsorshipType" value="cash" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color);">
+                                            <span style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-primary);">Cash sponsorship</span>
+                                        </label>
+                                        
+                                        <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 0.5rem; transition: var(--transition);" onmouseover="this.style.borderColor='var(--primary-color)'; this.style.backgroundColor='rgba(37, 99, 235, 0.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent'">
+                                            <input type="checkbox" name="sponsorshipType" value="inkind" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color);">
+                                            <span style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-primary);">In-kind (swag, food, prizes)</span>
+                                        </label>
+                                        
+                                        <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 0.5rem; transition: var(--transition);" onmouseover="this.style.borderColor='var(--primary-color)'; this.style.backgroundColor='rgba(37, 99, 235, 0.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent'">
+                                            <input type="checkbox" name="sponsorshipType" value="mentorship" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color);">
+                                            <span style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-primary);">Mentorship / judges</span>
+                                        </label>
+                                        
+                                        <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 0.5rem; transition: var(--transition);" onmouseover="this.style.borderColor='var(--primary-color)'; this.style.backgroundColor='rgba(37, 99, 235, 0.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent'">
+                                            <input type="checkbox" name="sponsorshipType" value="api" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color);">
+                                            <span style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-primary);">API / tools for hackers</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 1.5rem;">
+                                    <label for="contributionRange" style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem;">Estimated Contribution Range</label>
+                                    <select id="contributionRange" name="contributionRange" style="width: 100%; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 1rem; transition: var(--transition); box-sizing: border-box; background: white;" onfocus="this.style.borderColor='var(--primary-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                                        <option value="">Select range</option>
+                                        <option value="under-500">Under $500</option>
+                                        <option value="500-1000">$500 - $1,000</option>
+                                        <option value="1000-2500">$1,000 - $2,500</option>
+                                        <option value="2500-5000">$2,500 - $5,000</option>
+                                        <option value="5000-10000">$5,000 - $10,000</option>
+                                        <option value="over-10000">Over $10,000</option>
+                                        <option value="discuss">Prefer to discuss</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- What They Want in Return -->
+                            <div style="margin-bottom: 2.5rem;">
+                                <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--border-color);">
+                                    What You Want in Return
+                                    <span style="display: block; font-size: 0.875rem; font-weight: 400; color: var(--text-secondary); margin-top: 0.25rem; font-style: italic;">Align expectations early</span>
+                                </h2>
+                                
+                                <div style="margin-top: 1.5rem;">
+                                    <label style="display: block; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 1rem;">What are you most interested in?</label>
+                                    
+                                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                        <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 0.5rem; transition: var(--transition);" onmouseover="this.style.borderColor='var(--primary-color)'; this.style.backgroundColor='rgba(37, 99, 235, 0.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent'">
+                                            <input type="checkbox" name="interests" value="brand-visibility" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color);">
+                                            <span style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-primary);">Brand visibility</span>
+                                        </label>
+                                        
+                                        <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 0.5rem; transition: var(--transition);" onmouseover="this.style.borderColor='var(--primary-color)'; this.style.backgroundColor='rgba(37, 99, 235, 0.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent'">
+                                            <input type="checkbox" name="interests" value="recruiting" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color);">
+                                            <span style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-primary);">Recruiting students</span>
+                                        </label>
+                                        
+                                        <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 0.5rem; transition: var(--transition);" onmouseover="this.style.borderColor='var(--primary-color)'; this.style.backgroundColor='rgba(37, 99, 235, 0.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent'">
+                                            <input type="checkbox" name="interests" value="product-adoption" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color);">
+                                            <span style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-primary);">Product adoption</span>
+                                        </label>
+                                        
+                                        <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 0.5rem; transition: var(--transition);" onmouseover="this.style.borderColor='var(--primary-color)'; this.style.backgroundColor='rgba(37, 99, 235, 0.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent'">
+                                            <input type="checkbox" name="interests" value="speaking" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color);">
+                                            <span style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-primary);">Speaking opportunity</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 1.5rem;">
+                                    <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 0.5rem; transition: var(--transition);" onmouseover="this.style.borderColor='var(--primary-color)'; this.style.backgroundColor='rgba(37, 99, 235, 0.05)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.backgroundColor='transparent'">
+                                        <input type="checkbox" id="logoApproval" name="logoApproval" value="yes" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color); margin-top: 0.125rem; flex-shrink: 0;">
+                                        <span style="font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text-primary);">We approve our logo being used on the website & materials</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div id="sponsorMessage" style="margin-bottom: 1.5rem; display: none; padding: 0.875rem; border-radius: 0.5rem; font-family: 'Nunito', sans-serif; font-size: 0.9rem;"></div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.875rem; font-size: 1rem;">Submit Sponsorship Interest</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Hackegerton. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Handle sponsor form submission
+        const sponsorForm = document.getElementById('sponsorForm');
+        const sponsorMessage = document.getElementById('sponsorMessage');
+
+        if (sponsorForm) {
+            sponsorForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(sponsorForm);
+                const data = {
+                    companyName: formData.get('companyName'),
+                    fullName: formData.get('fullName'),
+                    roleTitle: formData.get('roleTitle') || null,
+                    email: formData.get('email'),
+                    phone: formData.get('phone') || null,
+                    sponsorshipType: formData.getAll('sponsorshipType'),
+                    contributionRange: formData.get('contributionRange') || null,
+                    interests: formData.getAll('interests'),
+                    logoApproval: formData.get('logoApproval') === 'yes'
+                };
+
+                // Validate required fields
+                if (!data.companyName || !data.fullName || !data.email) {
+                    showSponsorMessage('Please fill in all required fields.', 'error');
+                    return;
+                }
+
+                // Validate at least one sponsorship type is selected
+                if (data.sponsorshipType.length === 0) {
+                    showSponsorMessage('Please select at least one sponsorship type.', 'error');
+                    return;
+                }
+
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    showSponsorMessage('Please enter a valid email address.', 'error');
+                    return;
+                }
+
+                // Show loading state
+                const submitBtn = sponsorForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+
+                try {
+                    // Save to Supabase (sponsor_inquiries table)
+                    if (typeof supabaseClient !== 'undefined') {
+                        const result = await supabaseClient.insert('sponsor_inquiries', {
+                            company_name: data.companyName,
+                            contact_full_name: data.fullName,
+                            contact_role_title: data.roleTitle,
+                            contact_email: data.email,
+                            contact_phone: data.phone,
+                            sponsorship_types: data.sponsorshipType,
+                            contribution_range: data.contributionRange,
+                            interests: data.interests,
+                            logo_approval: data.logoApproval,
+                            created_at: new Date().toISOString()
+                        });
+
+                        if (result && result.length > 0) {
+                            showSponsorMessage('Thank you for your interest! We\'ll get back to you soon.', 'success');
+                            sponsorForm.reset();
+                        } else {
+                            throw new Error('Failed to submit form');
+                        }
+                    } else {
+                        // Fallback: store in localStorage if Supabase not available
+                        const inquiries = JSON.parse(localStorage.getItem('sponsor_inquiries') || '[]');
+                        inquiries.push({
+                            ...data,
+                            id: Date.now(),
+                            submittedAt: new Date().toISOString()
+                        });
+                        localStorage.setItem('sponsor_inquiries', JSON.stringify(inquiries));
+                        showSponsorMessage('Thank you for your interest! We\'ll get back to you soon.', 'success');
+                        sponsorForm.reset();
+                    }
+                } catch (error) {
+                    console.error('Sponsor form error:', error);
+                    showSponsorMessage('Sorry, there was an error submitting your form. Please try again or contact us directly.', 'error');
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        function showSponsorMessage(message, type) {
+            if (sponsorMessage) {
+                sponsorMessage.textContent = message;
+                sponsorMessage.className = '';
+                sponsorMessage.style.display = 'block';
+                
+                if (type === 'success') {
+                    sponsorMessage.style.background = '#d1fae5';
+                    sponsorMessage.style.color = '#065f46';
+                    sponsorMessage.style.border = '1px solid #10b981';
+                } else {
+                    sponsorMessage.style.background = '#fee2e2';
+                    sponsorMessage.style.color = '#991b1b';
+                    sponsorMessage.style.border = '1px solid #ef4444';
+                }
+                
+                // Scroll to message
+                sponsorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    sponsorMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

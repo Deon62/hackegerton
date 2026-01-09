@@ -558,6 +558,9 @@ function handleLogout() {
     if (typeof updateNavAccountButton === 'function') {
         updateNavAccountButton();
     }
+    if (typeof updateHeroCTAs === 'function') {
+        updateHeroCTAs();
+    }
     // Reload page to update UI
     window.location.reload();
 }
@@ -660,8 +663,46 @@ function updateNavAccountButton() {
 // Make updateNavAccountButton globally available
 window.updateNavAccountButton = updateNavAccountButton;
 
+// Update hero CTAs based on login status
+function updateHeroCTAs() {
+    function getUser() {
+        const userStr = localStorage.getItem('hackegerton_user');
+        return userStr ? JSON.parse(userStr) : null;
+    }
+    
+    const user = getUser();
+    const heroRegisterBtn = document.getElementById('heroRegisterBtn');
+    const ctaRegisterBtn = document.getElementById('ctaRegisterBtn');
+    
+    if (user) {
+        // User is logged in - change to Check In
+        if (heroRegisterBtn) {
+            heroRegisterBtn.textContent = 'Check In';
+            heroRegisterBtn.href = 'checkin.html';
+        }
+        if (ctaRegisterBtn) {
+            ctaRegisterBtn.textContent = 'Check In';
+            ctaRegisterBtn.href = 'checkin.html';
+        }
+    } else {
+        // User is logged out - show Register Now
+        if (heroRegisterBtn) {
+            heroRegisterBtn.textContent = 'Register Now';
+            heroRegisterBtn.href = 'register.html';
+        }
+        if (ctaRegisterBtn) {
+            ctaRegisterBtn.textContent = 'Register Now';
+            ctaRegisterBtn.href = 'register.html';
+        }
+    }
+}
+
+// Make updateHeroCTAs globally available
+window.updateHeroCTAs = updateHeroCTAs;
+
 // Update profile button and nav account button on page load if user is logged in
 document.addEventListener('DOMContentLoaded', () => {
     updateProfileButton();
     updateNavAccountButton();
+    updateHeroCTAs();
 });

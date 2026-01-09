@@ -36,8 +36,14 @@ const supabaseClient = {
         try {
             const response = await fetch(url, options);
             if (!response.ok) {
-                const error = await response.json();
-                throw new Error(error.message || 'Request failed');
+                let errorMessage = 'Request failed';
+                try {
+                    const errorData = await response.json();
+                    errorMessage = errorData.message || errorData.error_description || errorData.hint || JSON.stringify(errorData);
+                } catch (e) {
+                    errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+                }
+                throw new Error(errorMessage);
             }
             return await response.json();
         } catch (error) {

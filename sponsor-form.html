@@ -251,26 +251,37 @@
                 submitBtn.disabled = true;
 
                 try {
-                    // Save to Supabase (sponsor_inquiries table)
+                    // Save to Supabase (sponsor_submissions table)
                     if (typeof supabaseClient !== 'undefined') {
-                        const result = await supabaseClient.insert('sponsor_inquiries', {
+                        // Prepare data for Supabase
+                        // Note: created_at has a default value, so we don't need to include it
+                        const insertData = {
                             company_name: data.companyName,
                             contact_full_name: data.fullName,
-                            contact_role_title: data.roleTitle,
                             contact_email: data.email,
-                            contact_phone: data.phone,
-                            sponsorship_types: data.sponsorshipType,
-                            contribution_range: data.contributionRange,
-                            interests: data.interests,
-                            logo_approval: data.logoApproval,
-                            created_at: new Date().toISOString()
-                        });
+                            sponsorship_types: data.sponsorshipType.length > 0 ? data.sponsorshipType : [],
+                            interests: data.interests && data.interests.length > 0 ? data.interests : [],
+                            logo_approval: data.logoApproval || false
+                        };
+                        
+                        // Add optional fields only if they have values
+                        if (data.roleTitle && data.roleTitle.trim()) {
+                            insertData.contact_role_title = data.roleTitle;
+                        }
+                        if (data.phone && data.phone.trim()) {
+                            insertData.contact_phone = data.phone;
+                        }
+                        if (data.contributionRange && data.contributionRange.trim()) {
+                            insertData.contribution_range = data.contributionRange;
+                        }
+                        
+                        const result = await supabaseClient.insert('sponsor_submissions', insertData);
 
                         if (result && result.length > 0) {
                             showSponsorMessage('Thank you for your interest! We\'ll get back to you soon.', 'success');
                             sponsorForm.reset();
                         } else {
-                            throw new Error('Failed to submit form');
+                            throw new Error('Failed to submit form - no data returned');
                         }
                     } else {
                         // Fallback: store in localStorage if Supabase not available
@@ -286,7 +297,9 @@
                     }
                 } catch (error) {
                     console.error('Sponsor form error:', error);
-                    showSponsorMessage('Sorry, there was an error submitting your form. Please try again or contact us directly.', 'error');
+                    // Show more detailed error message
+                    const errorMessage = error.message || error.toString() || 'Unknown error occurred';
+                    showSponsorMessage(`Sorry, there was an error submitting your form: ${errorMessage}. Please try again or contact us directly.`, 'error');
                 } finally {
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;

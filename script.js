@@ -501,12 +501,21 @@ function initAccountModal() {
         }
     }
     
-    // Open modal
-    profileBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
+    // Open modal - support both click and touch events for mobile
+    function openModal(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
         updateModalContent();
         accountModal.classList.add('active');
         document.body.style.overflow = 'hidden';
+    }
+    
+    profileBtn.addEventListener('click', openModal);
+    profileBtn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        openModal(e);
     });
     
     // Close modal

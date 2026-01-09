@@ -319,9 +319,13 @@ body {
     transition: var(--transition);
     flex-shrink: 0;
     margin-left: 0.75rem;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
     outline: none;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .profile-btn:hover {
@@ -2650,10 +2654,20 @@ body {
         width: 36px;
         height: 36px;
         display: none; /* Hide by default on mobile */
+        cursor: pointer;
+        pointer-events: auto;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
     }
 
     .profile-btn.mobile-hidden {
         display: none; /* Hide profile button when logged out */
+    }
+
+    .profile-btn.mobile-visible {
+        pointer-events: auto;
+        touch-action: manipulation;
+        cursor: pointer;
     }
 
     .profile-btn svg {

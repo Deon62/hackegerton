@@ -50,6 +50,92 @@ const supabaseClient = {
         return this.request(table, 'GET', null, filters);
     },
     
+    async count(table, filters = {}) {
+        let url = `${this.url}/rest/v1/${table}`;
+        
+        // Add filters as query parameters
+        if (Object.keys(filters).length > 0) {
+            const params = new URLSearchParams();
+            Object.entries(filters).forEach(([key, value]) => {
+                params.append(key, `eq.${value}`);
+            });
+            url += '?' + params.toString();
+        }
+        
+        // Add count header
+        url += (url.includes('?') ? '&' : '?') + 'select=count';
+        
+        const options = {
+            method: 'HEAD',
+            headers: {
+                'apikey': this.key,
+                'Authorization': `Bearer ${this.key}`,
+                'Prefer': 'count=exact'
+            }
+        };
+        
+        try {
+            const response = await fetch(url, options);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            // Get count from Content-Range header
+            const contentRange = response.headers.get('content-range');
+            if (contentRange) {
+                const match = contentRange.match(/\/(\d+)/);
+                return match ? parseInt(match[1]) : 0;
+            }
+            // Fallback: use select with count
+            return this.selectCount(table, filters);
+        } catch (error) {
+            console.error('Supabase count error:', error);
+            // Fallback to select count
+            return this.selectCount(table, filters);
+        }
+    },
+    
+    async selectCount(table, filters = {}) {
+        let url = `${this.url}/rest/v1/${table}`;
+        
+        // Add filters as query parameters
+        if (Object.keys(filters).length > 0) {
+            const params = new URLSearchParams();
+            Object.entries(filters).forEach(([key, value]) => {
+                params.append(key, `eq.${value}`);
+            });
+            url += '?' + params.toString();
+        }
+        
+        const options = {
+            method: 'GET',
+            headers: {
+                'apikey': this.key,
+                'Authorization': `Bearer ${this.key}`,
+                'Prefer': 'count=exact',
+                'Range': '0-0'
+            }
+        };
+        
+        try {
+            const response = await fetch(url, options);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            // Get count from Content-Range header
+            const contentRange = response.headers.get('content-range');
+            if (contentRange) {
+                const match = contentRange.match(/\/(\d+)/);
+                return match ? parseInt(match[1]) : 0;
+            }
+            // If no content-range, fetch all and count (less efficient but works)
+            const data = await response.json();
+            return Array.isArray(data) ? data.length : 0;
+        } catch (error) {
+            console.error('Supabase selectCount error:', error);
+            throw error;
+        }
+    },
+    
     async insert(table, data) {
         return this.request(table, 'POST', data);
     },

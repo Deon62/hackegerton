@@ -224,11 +224,9 @@
                         avatar_url: newUser[0].avatar_url || avatarUrl
                     }));
                     
-                    // Update statistics
-                    const accountsCount = parseInt(localStorage.getItem('hackegerton_accounts') || '0') + 1;
-                    localStorage.setItem('hackegerton_accounts', accountsCount);
+                    // Update statistics (will fetch from Supabase)
                     if (typeof updateStatistics === 'function') {
-                        updateStatistics(accountsCount, null);
+                        await updateStatistics();
                     }
                     
                     messageDiv.style.display = 'block';

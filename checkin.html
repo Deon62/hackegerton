@@ -244,11 +244,9 @@
                 const result = await supabaseClient.insert('hackathon_registrations', registrationData);
                 
                 if (result && result[0]) {
-                    // Update teams count
-                    const teamsCount = parseInt(localStorage.getItem('hackegerton_teams') || '0') + 1;
-                    localStorage.setItem('hackegerton_teams', teamsCount);
+                    // Update statistics (will fetch from Supabase)
                     if (typeof updateStatistics === 'function') {
-                        updateStatistics(null, teamsCount);
+                        await updateStatistics();
                     }
                     
                     messageDiv.style.display = 'block';

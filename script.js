@@ -331,59 +331,123 @@ function animateCounter(element, target, duration = 2000) {
     }, 16);
 }
 
-// Fetch and display statistics
-function loadStatistics() {
+// Fetch and display statistics from Supabase
+async function loadStatistics() {
     const accountsElement = document.getElementById('accountsCount');
     const teamsElement = document.getElementById('teamsCount');
     
     if (!accountsElement || !teamsElement) return;
     
-    // Check if statistics are in localStorage (for demo purposes)
-    // In production, this would fetch from an API endpoint
-    let accountsCount = parseInt(localStorage.getItem('hackegerton_accounts') || '0');
-    let teamsCount = parseInt(localStorage.getItem('hackegerton_teams') || '0');
+    // Show loading state
+    accountsElement.textContent = '...';
+    teamsElement.textContent = '...';
     
-    // If no data in localStorage, use default demo values
-    if (accountsCount === 0 && teamsCount === 0) {
-        accountsCount = 127; // Demo value
-        teamsCount = 42; // Demo value
-        localStorage.setItem('hackegerton_accounts', accountsCount);
-        localStorage.setItem('hackegerton_teams', teamsCount);
+    try {
+        // Fetch real data from Supabase
+        const [accountsCount, teamsCount] = await Promise.all([
+            fetchAccountsCount(),
+            fetchTeamsCount()
+        ]);
+        
+        // Animate counters when section is visible
+        const statsSection = accountsElement.closest('section');
+        if (!statsSection) return;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(accountsElement, accountsCount);
+                    animateCounter(teamsElement, teamsCount);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(statsSection);
+        
+        // Also update immediately if section is already visible
+        if (statsSection.getBoundingClientRect().top < window.innerHeight) {
+            animateCounter(accountsElement, accountsCount);
+            animateCounter(teamsElement, teamsCount);
+        }
+        
+    } catch (error) {
+        console.error('Error loading statistics:', error);
+        // Fallback to localStorage or show 0
+        const accountsCount = parseInt(localStorage.getItem('hackegerton_accounts') || '0');
+        const teamsCount = parseInt(localStorage.getItem('hackegerton_teams') || '0');
+        
+        if (accountsElement) accountsElement.textContent = accountsCount.toLocaleString();
+        if (teamsElement) teamsElement.textContent = teamsCount.toLocaleString();
     }
     
-    // Animate counters when section is visible
-    const statsSection = accountsElement.closest('section');
-    if (!statsSection) return;
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(accountsElement, accountsCount);
-                animateCounter(teamsElement, teamsCount);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    observer.observe(statsSection);
-    
     // Function to update statistics (can be called from registration/login pages)
-    window.updateStatistics = function(accounts, teams) {
-        if (accounts !== undefined) {
+    window.updateStatistics = async function(accounts, teams) {
+        try {
+            if (accounts === undefined) {
+                accounts = await fetchAccountsCount();
+            }
+            if (teams === undefined) {
+                teams = await fetchTeamsCount();
+            }
+            
+            if (accountsElement) {
+                accountsElement.textContent = accounts.toLocaleString();
+            }
+            if (teamsElement) {
+                teamsElement.textContent = teams.toLocaleString();
+            }
+            
+            // Update localStorage as cache
             localStorage.setItem('hackegerton_accounts', accounts);
-            accountsElement.textContent = accounts.toLocaleString();
-        }
-        if (teams !== undefined) {
             localStorage.setItem('hackegerton_teams', teams);
-            teamsElement.textContent = teams.toLocaleString();
+        } catch (error) {
+            console.error('Error updating statistics:', error);
         }
     };
+}
+
+// Fetch accounts count from Supabase
+async function fetchAccountsCount() {
+    try {
+        if (typeof supabaseClient === 'undefined' || !supabaseClient.selectCount) {
+            // Fallback if supabase client not available
+            return parseInt(localStorage.getItem('hackegerton_accounts') || '0');
+        }
+        const count = await supabaseClient.selectCount('users', {});
+        return count || 0;
+    } catch (error) {
+        console.error('Error fetching accounts count:', error);
+        return parseInt(localStorage.getItem('hackegerton_accounts') || '0');
+    }
+}
+
+// Fetch teams count from Supabase (hackathon registrations)
+async function fetchTeamsCount() {
+    try {
+        if (typeof supabaseClient === 'undefined' || !supabaseClient.selectCount) {
+            // Fallback if supabase client not available
+            return parseInt(localStorage.getItem('hackegerton_teams') || '0');
+        }
+        const count = await supabaseClient.selectCount('hackathon_registrations', {});
+        return count || 0;
+    } catch (error) {
+        console.error('Error fetching teams count:', error);
+        return parseInt(localStorage.getItem('hackegerton_teams') || '0');
+    }
 }
 
 // Load statistics on page load
 document.addEventListener('DOMContentLoaded', () => {
     loadStatistics();
     initAccountModal();
+    
+    // Refresh statistics every 30 seconds to keep data current
+    setInterval(() => {
+        if (typeof updateStatistics === 'function') {
+            updateStatistics();
+        }
+    }, 30000);
 });
 
 // Account Modal and Authentication

@@ -24,7 +24,7 @@
     <title>Prizes | HackEgerton 2026 | Student Hackathon at Egerton University</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="canonical" href="https://hackegerton.com/prizes">
 </head>
@@ -61,56 +61,27 @@
     </header>
 
     <main>
-        <section class="legal-hero">
+        <section class="prizes-hero">
             <div class="container">
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
-                    <div style="width: 100%; max-width: 500px; height: auto; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; padding: 1rem;">
-                        <img src="assets/icons/prizes.svg" alt="Prizes Icon" class="prizes-hero-icon" style="width: 100%; max-width: 500px; height: auto; object-fit: contain; filter: drop-shadow(0 8px 24px rgba(245, 158, 11, 0.2)); transition: transform 0.3s ease;">
-                    </div>
-                    <h1 class="page-title">Prizes</h1>
-                    <p class="page-subtitle">Compete for exciting prizes in both the mini and major hackathon events</p>
-                </div>
+                <h1 class="prizes-page-title">Prizes</h1>
+                <p class="prizes-page-subtitle">Grand Hackathon · February 28</p>
             </div>
         </section>
 
-        <section class="content-section">
+        <section class="prizes-content-section">
             <div class="container">
-                <div class="prizes-content" style="max-width: 1200px; margin: 0 auto; padding: 4rem 0;">
-                    <div class="prizes-container" style="display: flex; flex-direction: column; gap: 5rem;">
-                        <!-- Mini Hackathon -->
-                        <div class="prize-section" style="position: relative; padding: 4rem 0;">
-                            <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                                <div style="font-size: 0.875rem; font-weight: 600; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem;">Mini Hackathon</div>
-                                <h2 style="font-size: 3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.2;">February 6, 2025</h2>
-                                <div style="margin-top: 3rem; position: relative;">
-                                    <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.3;">🔒</div>
-                                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); letter-spacing: 0.05em;">PRIZES TO BE UNLOCKED SOON</div>
-                                    <div style="width: 200px; height: 2px; background: linear-gradient(90deg, transparent, var(--primary-color), transparent); margin: 2rem auto 0;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Divider -->
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2rem 0;">
-                            <div style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--border-color), transparent);"></div>
-                            <div style="font-size: 1.5rem; color: var(--text-light);">✨</div>
-                            <div style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--border-color), transparent);"></div>
-                        </div>
-                        
-                        <!-- Major Hackathon -->
-                        <div class="prize-section" style="position: relative; padding: 4rem 0;">
-                            <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                                <div style="font-size: 0.875rem; font-weight: 600; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem;">Major Hackathon</div>
-                                <h2 style="font-size: 3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.2;">January 12 - February 28</h2>
-                                <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">2025</p>
-                                <div style="margin-top: 3rem; position: relative;">
-                                    <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.3;">🔒</div>
-                                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); letter-spacing: 0.05em;">PRIZES TO BE UNLOCKED SOON</div>
-                                    <div style="width: 200px; height: 2px; background: linear-gradient(90deg, transparent, var(--primary-color), transparent); margin: 2rem auto 0;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="prizes-layout">
+                    <div class="prize-pool-amount">KSH 60,000</div>
+                    <p class="prize-pool-note">Cash prize pool awarded across winning teams and tracks</p>
+                    
+                    <h3 class="prize-extras-title">Builder's Swag Pack</h3>
+                    <p class="prize-extras-desc">Every participant goes home with goodies</p>
+                    <ul class="prize-extras-list">
+                        <li>Industry wristbands & access passes</li>
+                        <li>HackEgerton merchandise</li>
+                        <li>Sponsor swag & tech goodies</li>
+                        <li>Surprise items from our partners</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -131,21 +102,58 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-icons">
-                    <a href="https://x.com/eucossake" class="footer-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <img src="assets/logo.png" alt="HackEgerton" width="40" height="40">
+                        <span>HackEgerton</span>
                     </a>
-                    <a href="https://www.instagram.com/eucossake?igsh=MXQ0ZHNnODhpeGRjbQ==" class="footer-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="mailto:eucossake@gmail.com" class="footer-icon" aria-label="Email">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    </a>
+                    <p class="footer-desc">HackEgerton is a student-led hackathon at Egerton University where students build, learn, and collaborate on real tech projects. Join us in shaping the future, one line of code at a time.</p>
+                    <div class="footer-social">
+                        <a href="https://x.com/eucossake" class="footer-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/eucossake?igsh=MXQ0ZHNnODhpeGRjbQ==" class="footer-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="mailto:eucossake@gmail.com" class="footer-icon" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Events</h4>
+                        <ul class="footer-list">
+                            <li><a href="/schedule">Schedule</a></li>
+                            <li><a href="/prizes">Prizes</a></li>
+                            <li><a href="/register">Register</a></li>
+                            <li><a href="/checkin">Check In</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Resources</h4>
+                        <ul class="footer-list">
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/sponsors">Sponsors</a></li>
+                            <li><a href="/schedule">Full Schedule</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Contact</h4>
+                        <ul class="footer-list">
+                            <li><a href="mailto:eucossake@gmail.com">Email Us</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 HackEgerton</p>
+                <p class="footer-copy">&copy; 2026 HackEgerton. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="/privacy">Privacy Policy</a>
+                    <span class="footer-sep">|</span>
+                    <a href="/terms">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>

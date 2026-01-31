@@ -1087,6 +1087,140 @@ body {
     }
 }
 
+/* Schedule Snapshot - Timeline Style */
+.schedule-snapshot-section {
+    padding: 5rem 0;
+    background: #ffffff;
+}
+
+.schedule-snapshot-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+}
+
+.schedule-timeline {
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.schedule-event {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.schedule-event:first-child {
+    border-top: 1px solid #e5e5e5;
+}
+
+.schedule-event-special {
+    background: #fafafa;
+    padding: 1.5rem 1.25rem;
+    margin: 0 -1.25rem;
+}
+
+.schedule-event-highlight {
+    background: #f5f5f5;
+    padding: 1.5rem 1.25rem;
+    margin: 0 -1.25rem;
+    border-bottom-color: #d0d0d0;
+}
+
+.schedule-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.schedule-day {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+}
+
+.schedule-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-top: 0.25rem;
+}
+
+.schedule-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.schedule-event-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.schedule-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.schedule-meta-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.schedule-label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.schedule-cta {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .schedule-event {
+        grid-template-columns: 70px 1fr;
+        gap: 1rem;
+        padding: 1.25rem 0;
+    }
+    .schedule-num {
+        font-size: 2rem;
+    }
+    .schedule-event-title {
+        font-size: 1.125rem;
+    }
+    .schedule-meta-item {
+        font-size: 0.875rem;
+    }
+    .schedule-event-special,
+    .schedule-event-highlight {
+        padding: 1.25rem 1rem;
+        margin: 0 -1rem;
+    }
+}
+
 /* Services Preview */
 /* Safety & Trust Section */
 .safety-trust {

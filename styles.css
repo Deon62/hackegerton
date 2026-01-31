@@ -2872,19 +2872,20 @@ body {
     transform: translateY(-5px) scale(1.02);
 }
 
-/* Prizes Page - Minimal Cute */
-.prizes-hero {
-    background: #fafafa;
-    padding: 4rem 0 2.5rem;
-    text-align: center;
+/* Prizes Page - Oval Layout */
+.prizes-section {
+    background: #ffffff;
+    padding: 100px 1rem 4rem;
+    min-height: 80vh;
 }
 
 .prizes-page-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 2.25rem;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.25rem;
+    text-align: center;
 }
 
 .prizes-page-subtitle {
@@ -2892,74 +2893,83 @@ body {
     font-size: 1rem;
     color: var(--text-secondary);
     font-weight: 400;
-}
-
-.prizes-content-section {
-    padding: 2.5rem 0 4rem;
-    background: #ffffff;
-}
-
-.prizes-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    gap: 0.5rem;
-    max-width: 480px;
+    margin-bottom: 3rem;
+}
+
+.prizes-oval {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    height: 380px;
     margin: 0 auto;
 }
 
-.prize-pool-amount {
+.prize-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     font-weight: 700;
     color: var(--text-primary);
 }
 
-.prize-pool-note {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    margin: 0 0 2rem 0;
-}
-
-.prize-extras-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
-}
-
-.prize-extras-desc {
+.prize-orbit {
+    position: absolute;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.875rem;
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    text-align: center;
+    max-width: 120px;
 }
 
-.prize-extras-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.prize-orbit-1 {
+    top: 6%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
-.prize-extras-list li {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    padding: 0.35rem 0;
+.prize-orbit-2 {
+    top: 20%;
+    right: 6%;
+}
+
+.prize-orbit-3 {
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+}
+
+.prize-orbit-4 {
+    bottom: 6%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.prize-orbit-5 {
+    top: 50%;
+    left: 4%;
+    transform: translateY(-50%);
 }
 
 @media (max-width: 768px) {
-    .prizes-hero {
-        padding: 3rem 0 2rem;
+    .prizes-section {
+        padding: 90px 1rem 3rem;
     }
     .prizes-page-title {
-        font-size: 1.75rem;
+        font-size: 1.875rem;
     }
-    .prize-pool-amount {
-        font-size: 2rem;
+    .prizes-oval {
+        height: 340px;
+    }
+    .prize-center {
+        font-size: 1.875rem;
+    }
+    .prize-orbit {
+        font-size: 0.8125rem;
+        max-width: 100px;
     }
 }
 
